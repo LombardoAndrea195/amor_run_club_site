@@ -147,7 +147,7 @@ function yearBadge(year: number) {
   return g;
 }
 
-function yearRing(group: THREE.Group, year: number, radius = 11.6) {
+export function yearRing(group: THREE.Group, year: number, radius = 11.6) {
   const ring = mesh(new THREE.TorusGeometry(radius, 0.16, 8, 96), clay(yearColor(year), false), false);
   ring.rotation.x = -Math.PI / 2;
   ring.position.y = TOP + 0.03;
@@ -159,6 +159,26 @@ function brandRunners(group: THREE.Group, runners: Runner[], shirts: string[], n
     const r = lap(runner(shirts[i % shirts.length]), a, b, 2.2 + rand() * 1.6, (i / n) * Math.PI * 2);
     group.add(r.group);
     runners.push(r);
+  }
+}
+
+/** A shallow Roman street wall turns an activation into a place rather than a prop on a plinth. */
+function eventStreet(group: THREE.Group, colors: string[]) {
+  for (let i = 0; i < 5; i++) {
+    const width = 2.6 + (i % 2) * 0.5;
+    const height = 3.3 + (i % 3) * 0.8;
+    const house = mesh(new THREE.BoxGeometry(width, height, 1.15), clay(colors[i % colors.length]), true, true);
+    house.position.set(-7.5 + i * 3.75, TOP + height / 2, -8.6 + (i % 2) * 0.45);
+    group.add(house);
+    const roof = mesh(new THREE.ConeGeometry(width * 0.85, 1.25, 4), clay("#9a6047", false));
+    roof.position.set(-7.5 + i * 3.75, TOP + height + 0.62, -8.6 + (i % 2) * 0.45);
+    roof.rotation.y = Math.PI / 4;
+    group.add(roof);
+    for (const x of [-0.55, 0.55]) {
+      const window = mesh(new THREE.BoxGeometry(0.42, 0.62, 0.06), clay("#f6d98e", false));
+      window.position.set(-7.5 + i * 3.75 + x, TOP + height * 0.58, -7.99 + (i % 2) * 0.45);
+      group.add(window);
+    }
   }
 }
 
@@ -215,10 +235,23 @@ export function pista(): Scene {
   group.add(coach.group);
   runners.push(coach);
 
-  const label = sign("INTERVALS", 4.5, 0.9, palette.ink, palette.pasta);
+  const label = sign("COACH FALCONE", 5.5, 0.9, palette.ink, palette.pasta);
   label.rotation.x = -Math.PI / 2;
   label.position.set(0, TOP + 0.04, -2.5);
   group.add(label);
+
+  // …and a name banner on poles, behind the coach
+  const banner = sign("COACH FALCONE", 5.8, 1, palette.red, "#fbeedd");
+  banner.position.set(0, TOP + 4.4, -5.6);
+  group.add(banner);
+  const bannerBack = mesh(new THREE.BoxGeometry(5.8, 1, 0.26), clay(palette.red));
+  bannerBack.position.set(0, TOP + 4.4, -5.75);
+  group.add(bannerBack);
+  for (const x of [-2.6, 2.6]) {
+    const pole = mesh(new THREE.CylinderGeometry(0.07, 0.07, 4.5, 6), clay(palette.ink));
+    pole.position.set(x, TOP + 2.25, -5.78);
+    group.add(pole);
+  }
 
   // reps: everyone sprints together, then jogs to recover
   const pace = (t: number) => (Math.sin(t * 1.1) > 0.4 ? 7 : 1.6);
@@ -332,136 +365,6 @@ export function fondatori(photos: (string | null)[], names: string[], focus: num
   return { group, runners, tick: (t) => plate.spin(t * 0.5) };
 }
 
-/* Saucony · London 2025 */
-export function londra(): Scene {
-  const group = new THREE.Group();
-  group.add(plinth(12, "#c9ccc5"));
-  const runners: Runner[] = [];
-
-  const tower = new THREE.Group();
-  const shaft = mesh(new THREE.BoxGeometry(2, 9, 2), clay("#d8b878"), true, true);
-  shaft.position.y = 4.5;
-  tower.add(shaft);
-  const clockTex = canvasTexture(256, 256, (c) => {
-    c.fillStyle = "#fbf4e0";
-    c.beginPath();
-    c.arc(128, 128, 120, 0, Math.PI * 2);
-    c.fill();
-    c.strokeStyle = palette.ink;
-    c.lineWidth = 10;
-    c.stroke();
-    c.lineWidth = 12;
-    c.beginPath();
-    c.moveTo(128, 128);
-    c.lineTo(128, 50);
-    c.moveTo(128, 128);
-    c.lineTo(185, 128);
-    c.stroke();
-  });
-  for (let s = 0; s < 4; s++) {
-    const face = mesh(new THREE.PlaneGeometry(1.6, 1.6), new THREE.MeshStandardMaterial({ map: clockTex, roughness: 0.8 }), false);
-    const a = (s * Math.PI) / 2;
-    face.position.set(Math.sin(a) * 1.02, 7.6, Math.cos(a) * 1.02);
-    face.rotation.y = a;
-    tower.add(face);
-  }
-  const spire = mesh(new THREE.ConeGeometry(1.5, 3, 4), clay("#4a5a4f"));
-  spire.position.y = 10.5;
-  spire.rotation.y = Math.PI / 4;
-  tower.add(spire);
-  tower.position.set(-5, TOP, -4);
-  group.add(tower);
-
-  const bus = new THREE.Group();
-  const bbody = mesh(new THREE.BoxGeometry(5, 3, 1.8), clay("#c8281e"), true, true);
-  bbody.position.y = 1.9;
-  bus.add(bbody);
-  for (const y of [1.6, 2.9])
-    for (let i = 0; i < 5; i++) {
-      const w = mesh(new THREE.BoxGeometry(0.75, 0.6, 0.05), clay("#2b3540"), false);
-      w.position.set(-2 + i * 1, y, 0.92);
-      bus.add(w);
-    }
-  for (const x of [-1.7, 1.7]) {
-    const wheel = mesh(new THREE.CylinderGeometry(0.45, 0.45, 1.9, 14), clay(palette.ink));
-    wheel.rotation.x = Math.PI / 2;
-    wheel.position.set(x, 0.45, 0);
-    bus.add(wheel);
-  }
-  bus.position.set(3.5, TOP, -5);
-  bus.rotation.y = -0.4;
-  group.add(bus);
-
-  const a = arch("SAUCONY · LONDON 2025", "#e2412b", "#fbf4e0", 7);
-  a.position.set(2, TOP, 2.5);
-  a.rotation.y = -0.2;
-  group.add(a);
-
-  const p = pastaMonument(farfalla(), 1.2, 2.6);
-  p.group.position.set(-6.5, TOP, 4);
-  group.add(p.group);
-  yearRing(group, 2025);
-  const yb = yearBadge(2025);
-  yb.position.set(7.4, TOP, 4.6);
-  yb.rotation.y = -0.55;
-  group.add(yb);
-  brandRunners(group, runners, ["#e2412b", "#1d1b1a", "#fbf4e0", "#c8281e"]);
-  return { group, runners, tick: (t) => p.spin(t) };
-}
-
-/* Saucony · Milano 21, 2026 */
-export function milano(): Scene {
-  const group = new THREE.Group();
-  group.add(plinth(12, "#e3dccd"));
-  const runners: Runner[] = [];
-
-  const duomo = new THREE.Group();
-  const facade = mesh(new THREE.BoxGeometry(8, 5, 3), clay("#f4ede0"), true, true);
-  facade.position.y = 2.5;
-  duomo.add(facade);
-  const gable = mesh(new THREE.ConeGeometry(4.4, 2.2, 4), clay("#f4ede0"));
-  gable.position.y = 6.1;
-  gable.rotation.y = Math.PI / 4;
-  gable.scale.z = 0.5;
-  duomo.add(gable);
-  const spireGeo = new THREE.ConeGeometry(0.18, 2.2, 6);
-  for (let i = 0; i < 9; i++) {
-    const s = mesh(spireGeo, clay("#f4ede0"));
-    s.position.set(-3.8 + i * 0.95, 5 + 1.1 + (i === 4 ? 2.6 : 0), 1.2);
-    if (i === 4) s.scale.setScalar(1.8);
-    duomo.add(s);
-  }
-  const madonnina = mesh(new THREE.SphereGeometry(0.28, 10, 8), clay("#e6b84a", false));
-  madonnina.position.set(0, 10.8, 1.2);
-  duomo.add(madonnina);
-  for (const x of [-2.4, 0, 2.4]) {
-    const door = mesh(new THREE.BoxGeometry(1, 2, 0.08), clay("#6b5640"));
-    door.position.set(x, 1, 1.52);
-    duomo.add(door);
-  }
-  duomo.position.set(0, TOP, -5.5);
-  group.add(duomo);
-
-  const a = arch("MILANO 21 · SAUCONY", "#e2412b", "#fbf4e0", 7);
-  a.position.set(0, TOP, 2.6);
-  group.add(a);
-  const km = sign("21.1 KM", 2.4, 0.9, palette.ink, palette.pasta);
-  km.position.set(-6, TOP + 1.5, 3);
-  km.rotation.y = 0.5;
-  group.add(km);
-
-  const p = pastaMonument(fusilli(), 1, 1);
-  p.group.position.set(6.5, TOP, 3.2);
-  group.add(p.group);
-  yearRing(group, 2026);
-  const yb = yearBadge(2026);
-  yb.position.set(-7.6, TOP, 4.2);
-  yb.rotation.y = 0.55;
-  group.add(yb);
-  brandRunners(group, runners, ["#e2412b", "#fbf4e0", "#1d1b1a", "#f0b955"]);
-  return { group, runners, tick: (t) => p.spin(t) };
-}
-
 /* Brooks · Half marathon 2026 */
 export function brooks(): Scene {
   const group = new THREE.Group();
@@ -469,6 +372,25 @@ export function brooks(): Scene {
   const runners: Runner[] = [];
   const blue = "#1c3f94";
   const sky = "#36a9e1";
+  eventStreet(group, ["#e7c79a", "#dca47e", "#e8d7bd"]);
+
+  // Brooks' DNA Tuned cushioning becomes an oversized, nitrogen-cell installation.
+  const dna = new THREE.Group();
+  const midsole = mesh(new THREE.BoxGeometry(6.6, 0.72, 1.25), clay("#ffffff", false), true, true);
+  midsole.position.y = 1.15;
+  dna.add(midsole);
+  for (let i = 0; i < 14; i++) {
+    const cell = mesh(new THREE.SphereGeometry(0.28 + (i % 3) * 0.035, 12, 8), clay(i % 2 ? sky : "#b8e7f7", false));
+    cell.scale.set(1, 0.65, 1);
+    cell.position.set(-2.85 + i * 0.44, 1.12, 0.68);
+    dna.add(cell);
+  }
+  const dnaLabel = sign("DNA TUNED", 3.6, 0.68, blue, "#ffffff");
+  dnaLabel.position.set(0, 2.15, 0.68);
+  dna.add(dnaLabel);
+  dna.position.set(-5.1, TOP, 3.5);
+  dna.rotation.y = 0.48;
+  group.add(dna);
 
   const a = arch("BROOKS · HALF MARATHON 2026", blue, "#ffffff", 9);
   a.position.set(0, TOP, -1);
@@ -480,6 +402,32 @@ export function brooks(): Scene {
   km.position.set(-6.5, TOP + 1.5, 2);
   km.rotation.y = 0.5;
   group.add(km);
+  const rome = sign("ROMA HALF MARATHON", 5.4, 0.85, blue, "#ffffff");
+  rome.position.set(-1.8, TOP + 1.2, 3.8);
+  rome.rotation.y = 0.22;
+  group.add(rome);
+  const happy = sign("RUN HAPPY", 3.4, 0.68, "#f6d33a", blue);
+  happy.position.set(5.8, TOP + 2.15, -0.5);
+  happy.rotation.y = -0.38;
+  group.add(happy);
+  // Oversized Brooks shoes make the product activation immediately legible.
+  for (const [x, z, turn] of [[-4.8, 3.5, 0.55], [4.8, 3.2, -0.65]] as const) {
+    const shoe = new THREE.Group();
+    const sole = mesh(new THREE.BoxGeometry(1.35, 0.32, 3.1), clay("#ffffff", false));
+    sole.position.y = 0.2;
+    shoe.add(sole);
+    const upper = mesh(new THREE.SphereGeometry(0.82, 16, 10), clay(blue, false));
+    upper.scale.set(0.9, 0.75, 1.8);
+    upper.position.set(0, 0.58, -0.1);
+    shoe.add(upper);
+    const lace = mesh(new THREE.TorusGeometry(0.27, 0.06, 6, 12), clay(sky, false));
+    lace.position.set(0, 1.1, 0.28);
+    lace.rotation.x = Math.PI / 2.5;
+    shoe.add(lace);
+    shoe.position.set(x, TOP, z);
+    shoe.rotation.y = turn;
+    group.add(shoe);
+  }
   for (const [x, z, t] of [[6, -4, "21K"], [-6, -5, "2026"]] as const) {
     const f = flagBanner(t, blue, "#ffffff");
     f.position.set(x, TOP, z);
@@ -497,47 +445,167 @@ export function brooks(): Scene {
   return { group, runners, tick: (t) => p.spin(t * 0.5) };
 }
 
-/* Under Armour · 2026 */
+/* Under Armour · Pincio, Rome · 2026 */
 export function underArmour(): Scene {
   const group = new THREE.Group();
-  group.add(plinth(12, "#3a3a3a"));
+  group.add(plinth(12, palette.grass));
   const runners: Runner[] = [];
 
-  const stage = mesh(new THREE.BoxGeometry(9, 0.8, 4.5), clay("#1d1b1a"), true, true);
-  stage.position.set(0, TOP + 0.4, -4.5);
+  // A green Pincio terrace, looking down towards a compact interpretation of
+  // the Spanish Steps and Piazza di Spagna.
+  for (const [x, z, scale] of [[-9, -5, 1.05], [-8, 4, 0.85], [7.8, -5, 1], [9, 4, 0.8]] as const) {
+    const pine = umbrellaPine(scale);
+    pine.position.set(x, TOP, z);
+    group.add(pine);
+  }
+  const steps = new THREE.Group();
+  for (let i = 0; i < 7; i++) {
+    const step = mesh(new THREE.BoxGeometry(7.5 - i * 0.45, 0.38, 0.95), clay("#eadcc3", false), true, true);
+    step.position.set(0, TOP + 0.19 + i * 0.38, -5.5 + i * 0.34);
+    steps.add(step);
+  }
+  const obelisk = mesh(new THREE.ConeGeometry(0.24, 4.2, 4), clay("#d9c6a5", false));
+  obelisk.position.set(0, TOP + 4.2, -3.2);
+  steps.add(obelisk);
+  group.add(steps);
+
+  // UA Flow's single-foam sole is staged as a training platform; UA Warp
+  // appears as the tense red web runners pass through.
+  const flow = new THREE.Group();
+  const flowSole = mesh(new THREE.BoxGeometry(5.4, 0.65, 2), clay("#ffffff", false), true, true);
+  flowSole.position.y = 0.55;
+  flow.add(flowSole);
+  const flowUpper = mesh(new THREE.SphereGeometry(1.2, 16, 10), clay("#1d1b1a", false));
+  flowUpper.scale.set(1.7, 0.5, 0.9);
+  flowUpper.position.set(-0.4, 1.1, -0.1);
+  flow.add(flowUpper);
+  for (let i = 0; i < 6; i++) {
+    const warp = mesh(new THREE.BoxGeometry(0.11, 1.05, 0.08), clay("#c8281e", false));
+    warp.position.set(-1.8 + i * 0.58, 1.36, 0.78);
+    warp.rotation.z = i % 2 ? 0.43 : -0.43;
+    flow.add(warp);
+  }
+  const flowLabel = sign("UA FLOW · UA WARP", 4.3, 0.72, "#1d1b1a", "#ffffff");
+  flowLabel.position.set(0, 2.35, 0.95);
+  flow.add(flowLabel);
+  flow.position.set(-6.5, TOP, 3.4);
+  flow.rotation.y = 0.55;
+  group.add(flow);
+
+  const warpGate = new THREE.Group();
+  for (const x of [-1.8, 1.8]) {
+    const post = mesh(new THREE.BoxGeometry(0.22, 3.3, 0.22), clay("#1d1b1a", false));
+    post.position.set(x, 1.65, 0);
+    warpGate.add(post);
+  }
+  for (let i = 0; i < 5; i++) {
+    const band = mesh(new THREE.BoxGeometry(3.7, 0.1, 0.06), clay("#c8281e", false));
+    band.position.set(0, 0.55 + i * 0.53, 0);
+    band.rotation.z = i % 2 ? 0.28 : -0.28;
+    warpGate.add(band);
+  }
+  warpGate.position.set(5.8, TOP, 3.8);
+  warpGate.rotation.y = -0.48;
+  group.add(warpGate);
+
+  // Stone balustrades give the Pincio terrace a clear edge and a Roman viewpoint.
+  for (const x of [-5.2, 5.2]) {
+    const rail = mesh(new THREE.BoxGeometry(0.35, 1.05, 7.6), clay("#eadcc3", false), true, true);
+    rail.position.set(x, TOP + 0.54, -1.2);
+    group.add(rail);
+  }
+
+  const archway = arch("UNDER ARMOUR · PINCIO", "#1d1b1a", "#ffffff", 8);
+  archway.position.set(0, TOP, 2.8);
+  group.add(archway);
+  const piazza = sign("ROMA · PIAZZA DI SPAGNA", 5.4, 0.82, "#ffffff", "#1d1b1a");
+  piazza.position.set(0, TOP + 1.15, 4.8);
+  group.add(piazza);
+
+  for (let i = 0; i < 6; i++) {
+    const c = cheerer(i % 2 ? "#ffffff" : "#1d1b1a");
+    c.group.position.set(-3.8 + i * 1.5, TOP + 0.4 + Math.min(i, 5) * 0.38, -4.9 + Math.min(i, 5) * 0.34);
+    group.add(c.group);
+    runners.push(c);
+  }
+  brandRunners(group, runners, ["#1d1b1a", "#ffffff", "#c8281e"], 11, 9.8, 8.9);
+  return { group, runners };
+}
+
+/* Adidas · Parchetto dell'EUR · 2026 */
+export function adidas(): Scene {
+  const group = new THREE.Group();
+  group.add(plinth(12, "#b7d18b"));
+  const runners: Runner[] = [];
+  const blue = "#1644a2";
+  eventStreet(group, ["#d7c09b", "#dca47e", "#e6d3b0"]);
+
+  // EUR's open park becomes the dance-floor finish of the run.
+  for (const [x, z] of [[-9, -5], [-8, 5], [8.5, -4], [9, 5]] as const) {
+    const pine = umbrellaPine(0.9);
+    pine.position.set(x, TOP, z);
+    group.add(pine);
+  }
+  const stage = mesh(new THREE.BoxGeometry(6.4, 0.75, 3.2), clay("#1d1b1a"), true, true);
+  stage.position.set(0, TOP + 0.38, -4.8);
   group.add(stage);
-  const wall = sign("UNDER ARMOUR · 2026", 9, 2.2, "#1d1b1a", "#ffffff");
-  wall.position.set(0, TOP + 2.9, -6.7);
-  group.add(wall);
-  const wallBack = mesh(new THREE.BoxGeometry(9, 2.2, 0.3), clay("#111111"));
-  wallBack.position.set(0, TOP + 2.9, -6.9);
-  group.add(wallBack);
-  for (const x of [-3.4, 3.4]) {
-    const spot = mesh(new THREE.CylinderGeometry(0.3, 0.45, 0.7, 10), clay("#d9d9d9", false));
-    spot.position.set(x, TOP + 4.6, -5.5);
-    spot.rotation.x = 0.8;
-    group.add(spot);
+  for (const x of [-3.65, 3.65]) {
+    const speakers = new THREE.Group();
+    for (let y = 0; y < 2; y++) {
+      const cabinet = mesh(new THREE.BoxGeometry(1.05, 1.05, 0.75), clay("#161616", false), true, true);
+      cabinet.position.y = 0.55 + y * 1.08;
+      speakers.add(cabinet);
+      const cone = mesh(new THREE.CircleGeometry(0.28, 16), clay("#f0d955", false));
+      cone.position.set(0, 0.55 + y * 1.08, 0.4);
+      speakers.add(cone);
+    }
+    speakers.position.set(x, TOP, -4.8);
+    group.add(speakers);
   }
-  // plyo boxes for the workout
-  for (let i = 0; i < 4; i++) {
-    const b = mesh(new THREE.BoxGeometry(1.2, 0.9, 1.2), clay(i % 2 ? "#c8281e" : "#d9d9d9"), true, true);
-    b.position.set(-4.5 + i * 3, TOP + 0.45, 1.5);
-    group.add(b);
-    const j = cheerer(i % 2 ? "#1d1b1a" : "#ffffff");
-    j.group.position.set(-4.5 + i * 3, TOP + 0.9, 1.5);
-    group.add(j.group);
-    runners.push(j);
+  const console = mesh(new THREE.BoxGeometry(3.2, 0.62, 0.7), clay("#ffffff", false), true, true);
+  console.position.set(0, TOP + 1.1, -4.2);
+  group.add(console);
+  for (const x of [-0.95, 0.95]) {
+    const deck = mesh(new THREE.CylinderGeometry(0.46, 0.46, 0.08, 20), clay("#1d1b1a", false));
+    deck.rotation.x = Math.PI / 2;
+    deck.position.set(x, TOP + 1.45, -3.82);
+    group.add(deck);
   }
-  const p = pastaMonument(penne(), 0.8, 2.4);
-  p.group.position.set(-7, TOP, -1);
-  group.add(p.group);
-  yearRing(group, 2026);
-  const yb = yearBadge(2026);
-  yb.position.set(7.4, TOP, 4.4);
-  yb.rotation.y = -0.55;
-  group.add(yb);
-  brandRunners(group, runners, ["#1d1b1a", "#ffffff", "#c8281e"], 10, 10, 9.5);
-  return { group, runners, tick: (t) => p.spin(t) };
+  const dj = cheerer("#ffffff");
+  const djBody = dj.group.children[0];
+  // Headphones and a bright cap make the DJ a distinct character, not another runner.
+  const headband = mesh(new THREE.TorusGeometry(0.31, 0.055, 6, 12, Math.PI), clay("#f0d955", false));
+  headband.position.set(0, 2.02, -0.04);
+  headband.rotation.z = Math.PI;
+  djBody.add(headband);
+  for (const x of [-0.3, 0.3]) {
+    const cup = mesh(new THREE.SphereGeometry(0.13, 10, 8), clay("#f0d955", false));
+    cup.scale.set(0.65, 1.1, 0.65);
+    cup.position.set(x, 1.96, 0);
+    djBody.add(cup);
+  }
+  dj.group.position.set(0, TOP + 0.75, -4.75);
+  dj.group.scale.setScalar(1.15);
+  group.add(dj.group);
+  runners.push(dj);
+  const note = sign("DJ SET", 2.6, 0.8, "#f0d955", "#1d1b1a");
+  note.position.set(0, TOP + 3.2, -4.6);
+  group.add(note);
+  const start = arch("ADIDAS · EUR", blue, "#ffffff", 7.5);
+  start.position.set(0, TOP, 2.4);
+  group.add(start);
+  const park = sign("PARCHETTO DELL’EUR", 5.2, 0.8, "#ffffff", blue);
+  park.position.set(0, TOP + 1.1, 4.6);
+  group.add(park);
+  for (let i = 0; i < 9; i++) {
+    const dancer = cheerer(i % 3 === 0 ? "#f0d955" : i % 2 ? blue : "#ffffff");
+    dancer.group.position.set(-4.5 + (i % 5) * 2.2, TOP, -1.5 + Math.floor(i / 5) * 1.4);
+    dancer.group.rotation.y = Math.PI + (i % 2 ? 0.3 : -0.3);
+    group.add(dancer.group);
+    runners.push(dancer);
+  }
+  brandRunners(group, runners, [blue, "#ffffff", "#1d1b1a"], 14, 9.5, 8.8);
+  return { group, runners };
 }
 
 /* Garmin · 2026 */
@@ -545,6 +613,16 @@ export function garmin(): Scene {
   const group = new THREE.Group();
   group.add(plinth(12, "#d6e4ea"));
   const runners: Runner[] = [];
+  const route = mesh(new THREE.RingGeometry(7.6, 8.25, 72), clay("#36a9e1", false), false, true);
+  route.rotation.x = -Math.PI / 2;
+  route.position.y = TOP + 0.02;
+  group.add(route);
+  for (const r of [7.85, 8.05]) {
+    const line = mesh(new THREE.RingGeometry(r, r + 0.05, 72), clay("#ffffff", false), false, true);
+    line.rotation.x = -Math.PI / 2;
+    line.position.y = TOP + 0.04;
+    group.add(line);
+  }
 
   const watch = new THREE.Group();
   const strap = mesh(new THREE.BoxGeometry(2.6, 9, 0.6), clay("#1d1b1a"), true, true);

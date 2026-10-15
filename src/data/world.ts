@@ -13,5 +13,5 @@ export const founders = [
 
 export const schedule = {
   social: { day: "Saturday", what: "Social run, about 5 km, starting around Testaccio. Routes change every week." },
-  intervals: { day: "Tuesday", what: "Evening intervals led by our running coach." },
+  intervals: { day: "Tuesday", what: "Evening intervals led by Coach Falcone." },
 };

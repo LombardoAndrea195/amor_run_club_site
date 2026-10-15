@@ -134,18 +134,25 @@ export function colosseo(): Scene {
     }
   group.add(arches);
 
-  const road = mesh(new THREE.RingGeometry(7.6, 9.9, 64), clay("#77716b", false), false, true);
-  road.rotation.x = -Math.PI / 2;
-  road.position.y = TOP + 0.02;
-  group.add(road);
-  const lane = mesh(new THREE.RingGeometry(8.72, 8.8, 64), clay("#f4efe6", false), false, true);
-  lane.rotation.x = -Math.PI / 2;
-  lane.position.y = TOP + 0.03;
-  group.add(lane);
+  // A recognisable three-lane athletics track wraps the Colosseum.
+  const track = mesh(new THREE.RingGeometry(7.25, 10.45, 96), clay("#b5452f", false), false, true);
+  track.rotation.x = -Math.PI / 2;
+  track.position.y = TOP + 0.02;
+  group.add(track);
+  for (const r of [8.1, 9.08, 10.02]) {
+    const lane = mesh(new THREE.RingGeometry(r, r + 0.075, 96), clay("#fbfaf6", false), false, true);
+    lane.rotation.x = -Math.PI / 2;
+    lane.position.y = TOP + 0.045;
+    group.add(lane);
+  }
+  const trackMark = sign("ROMA RUN TRACK", 4.2, 0.65, "#fbfaf6", "#b5452f");
+  trackMark.rotation.x = -Math.PI / 2;
+  trackMark.position.set(0, TOP + 0.055, -8.85);
+  group.add(trackMark);
 
-  for (let i = 0; i < 16; i++) {
-    const rad = i % 2 ? 8.25 : 9.3;
-    const r = lap(runner(), rad, rad, 2.2 + rand() * 1.4, (i / 16) * Math.PI * 2);
+  for (let i = 0; i < 20; i++) {
+    const rad = [7.75, 8.7, 9.65][i % 3];
+    const r = lap(runner(), rad, rad, 2.2 + rand() * 1.4, (i / 20) * Math.PI * 2);
     group.add(r.group);
     runners.push(r);
   }
@@ -302,6 +309,18 @@ export function edicola(): Scene {
   group.add(plinth(12, palette.cobble));
   const runners: Runner[] = [];
 
+  // Testaccio reads as a real street: compact, sun-washed facades enclose the activation.
+  for (const [x, z, w, h, color] of [
+    [-8.1, -6.4, 3.1, 5.2, "#d99b72"],
+    [-4.9, -7.2, 2.7, 4.3, "#e6c28e"],
+    [4.3, -7.1, 3.2, 5.1, "#d58a68"],
+    [7.7, -6.2, 2.8, 4.5, "#e3b685"],
+  ] as const) {
+    const facade = building(w, h, 1.6, color);
+    facade.position.set(x, TOP, z);
+    group.add(facade);
+  }
+
   const kiosk = new THREE.Group();
   const box = mesh(new THREE.BoxGeometry(4.6, 3.4, 3.2), clay("#2f5d50"), true, true);
   box.position.y = 1.7;
@@ -309,7 +328,7 @@ export function edicola(): Scene {
   const roof = mesh(new THREE.BoxGeometry(5.6, 0.3, 4.2), clay("#264c42"));
   roof.position.y = 3.55;
   kiosk.add(roof);
-  const panel = sign("THE RUNNER’S JOURNAL", 4.4, 0.8, palette.red, "#fbeedd");
+  const panel = sign("SAUCONY · TESTACCIO", 4.4, 0.8, palette.red, "#fbeedd");
   panel.position.set(0, 3.05, 1.62);
   kiosk.add(panel);
   const paperMat = new THREE.MeshStandardMaterial({ map: newspaperTex(), roughness: 0.9 });
@@ -344,6 +363,16 @@ export function edicola(): Scene {
   shoe.rotation.y = -0.7;
   group.add(shoe);
 
+  // One Saucony world, with three moments in the same island: Testaccio,
+  // Milano 21 (the yellow crew) and the Rome Marathon shoe activation.
+  const marathon = sign("ROMA MARATHON · SAUCONY", 7.6, 1.05, "#e2412b", "#fbf4e0");
+  marathon.position.set(1.8, TOP + 4.4, -5.35);
+  group.add(marathon);
+  const milano = sign("MILANO 21 · 2026", 4.3, 0.85, "#1d1b1a", "#f0d955");
+  milano.position.set(-5.1, TOP + 2.7, 2.2);
+  milano.rotation.y = 0.38;
+  group.add(milano);
+
   for (let i = 0; i < 7; i++) {
     const c = cheerer();
     const paper = mesh(new THREE.PlaneGeometry(0.5, 0.65), paperMat, false);
@@ -353,6 +382,11 @@ export function edicola(): Scene {
     c.group.rotation.y = Math.PI + (rand() - 0.5) * 0.6;
     group.add(c.group);
     runners.push(c);
+  }
+  for (let i = 0; i < 10; i++) {
+    const r = lap(runner("#f0d955"), 8.5, 7.7, 2.4 + rand() * 1.2, (i / 10) * Math.PI * 2);
+    group.add(r.group);
+    runners.push(r);
   }
   for (const [x, z] of [[-9, 3], [8.5, -5]]) {
     const p = umbrellaPine(0.8);

@@ -189,3 +189,8 @@ img { display: block; max-width: 100%; height: auto; }
 .no-gl .w-panel, .no-gl .w-panel--hero, .no-gl .w-panel--cta { position: static; transform: none; width: min(34rem, 100%); padding: 0; }
 .no-gl .w-card { visibility: visible !important; pointer-events: auto; }
 .no-gl .t-stagger-line { opacity: 1; transform: none; filter: none; }
+
+/* Brand activations share one recognisable editorial treatment. */
+.w-panel--brand .w-card { border-top-width: 7px; }
+.w-panel--brand .w-eyebrow { color: var(--ink); }
+.w-panel--brand .w-tags li:first-child { background: var(--pasta); }

@@ -1,6 +1,6 @@
 import * as THREE from "three";
-import { piazza, colosseo, parco, pastificio, edicola, finale, clouds, type Scene } from "./scenes";
-import { pista, fondatori, londra, milano, brooks, underArmour, garmin } from "./brands";
+import { piazza, colosseo, pastificio, edicola, finale, clouds, type Scene } from "./scenes";
+import { fondatori, brooks, underArmour, garmin, adidas } from "./brands";
 import { palette } from "./kit";
 
 /**
@@ -15,14 +15,11 @@ export type Founder = { name: string; photo: string | null; focus?: number };
 function buildScenes(founders: Founder[]): Scene[] {
   return [
     piazza(),
-    colosseo(),
-    pista(),
-    parco(),
-    pastificio(),
     fondatori(founders.map((f) => f.photo), founders.map((f) => f.name), founders.map((f) => f.focus ?? 0.5)),
     edicola(),
-    londra(),
-    milano(),
+    adidas(),
+    colosseo(),
+    pastificio(),
     brooks(),
     underArmour(),
     garmin(),
@@ -30,7 +27,7 @@ function buildScenes(founders: Founder[]): Scene[] {
   ];
 }
 
-const CENTERS = Array.from({ length: 13 }, (_, i) =>
+const CENTERS = Array.from({ length: 10 }, (_, i) =>
   new THREE.Vector3(i * 36, [0, 2, -1, 1][i % 4], i % 2 ? -24 : 2),
 );
 
@@ -40,7 +37,7 @@ const HOLD = 1.1;
 type Key = { pos: THREE.Vector3; look: THREE.Vector3; anchor?: number };
 
 /** Dive look-at height per island: the founders' portrait wall is tall and needs headroom. */
-const LOOK_Y = [1.8, 1.8, 1.8, 1.8, 1.8, 3, 1.8, 1.8, 1.8, 1.8, 1.8, 1.8, 1.8];
+const LOOK_Y = [1.8, 3, 1.8, 1.8, 1.8, 1.8, 1.8, 1.8, 1.8, 1.8];
 
 function buildKeys(portrait: boolean) {
   const k = portrait ? 1.4 : 1;

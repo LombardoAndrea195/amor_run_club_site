@@ -179,6 +179,15 @@ export function runner(shirt = pick(palette.shirts)): Runner {
     const p = new THREE.Group();
     p.position.set(x, 0.92, 0);
     p.add(mesh(legGeo, shorts));
+    // A layered sole and upper give every runner a readable running shoe,
+    // even at the small scale of the flying camera.
+    const sole = mesh(new THREE.BoxGeometry(0.27, 0.09, 0.58), clay("#fbfaf6", false));
+    sole.position.set(0, -0.78, 0.18);
+    p.add(sole);
+    const upper = mesh(new THREE.SphereGeometry(0.17, 10, 7), clay(pick(["#c8281e", "#f0b955", "#36a9e1", "#1d1b1a"]), false));
+    upper.scale.set(0.9, 0.55, 1.6);
+    upper.position.set(0, -0.69, 0.18);
+    p.add(upper);
     body.add(p);
     return p;
   });

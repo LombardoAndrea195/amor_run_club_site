@@ -25,78 +25,65 @@ const stops = [
     tags: ["Free", "Every pace", "Testaccio"],
   },
   {
-    eyebrow: "02 · The run",
-    title: "A new route every week",
-    body: "Lungotevere, Testaccio, the ancient centre: we run the streets of the Eternal City together, with music.",
-    tags: ["~5 km", "Music"],
-  },
-  {
-    eyebrow: "03 · Every " + schedule.intervals.day,
-    title: "Intervals with the coach",
-    body: schedule.intervals.what + " Sprint, recover, repeat. Faster together.",
-    tags: ["Coach", "Intervals", "Evening"],
-  },
-  {
-    eyebrow: "04 · Every pace",
-    title: "Nobody gets left behind",
-    body: "Seasoned runner or first 5K, our inclusive environment welcomes all levels. Walk, jog or fly.",
-    tags: ["All levels", "Easy Run 5K"],
-  },
-  {
-    eyebrow: "05 · The finish line",
-    title: "Eat pasta, run fasta",
-    body: "Every run ends at a local spot: pasta shops, bars and aperitivo with the crew.",
-    tags: ["Pasta", "Aperitivo"],
-  },
-  {
-    eyebrow: "06 · The founders",
+    eyebrow: "02 · The founders",
     title: "Three friends, one club",
     body: "Meet the three founders behind Amor Run Club.",
     tags: founders.map((f) => f.name).filter((n) => n !== "Founder"),
   },
   {
-    eyebrow: "07 · Saucony × Amor",
-    title: "The Runner’s Journal",
-    body: "Our Amor × Saucony edition took over a Testaccio newsstand, shoes, stories and all.",
-    tags: ["Saucony", "Testaccio"],
+    eyebrow: "03 · Brand interaction · Saucony",
+    title: "Saucony × Amor",
+    body: "From the Testaccio newsstand to Milano 21—with everyone in yellow—and the Rome Marathon, surrounded by Saucony shoes.",
+    tags: ["Testaccio", "Milano 21", "Rome Marathon", "2026"],
+    brand: true,
   },
   {
-    eyebrow: "08 · 2025 · Saucony · London",
-    title: "London calling",
-    body: "In 2025, with Saucony, we took the crew to London. And yes, pasta after.",
-    tags: ["Saucony", "London", "2025"],
+    eyebrow: "04 · Brand interaction · Adidas",
+    title: "Adidas × Amor at EUR",
+    body: "We ran at Parchetto dell’EUR, then a DJ kept the crew moving.",
+    tags: ["Adidas", "EUR", "DJ set", "2026"],
+    brand: true,
   },
   {
-    eyebrow: "09 · 2026 · Saucony · Milano",
-    title: "Milano 21",
-    body: "In 2026, 21.1 km in Milan, running with Saucony.",
-    tags: ["Saucony", "Half marathon", "2026"],
+    eyebrow: "05 · The run",
+    title: "A track around the Colosseum",
+    body: "The crew runs lap after lap around Rome’s most iconic arena, on a proper track with marked lanes.",
+    tags: ["Track", "Rome", "Every pace"],
   },
   {
-    eyebrow: "10 · 2026 · Brooks",
-    title: "Half marathon with Brooks",
-    body: "A half marathon together with Brooks.",
-    tags: ["Brooks", "21.1 km", "2026"],
+    eyebrow: "06 · The finish line",
+    title: "Eat pasta, run fasta",
+    body: "Every run ends at a local spot: pasta shops, bars and aperitivo with the crew.",
+    tags: ["Pasta", "Aperitivo"],
   },
   {
-    eyebrow: "11 · 2026 · Under Armour",
-    title: "Training day with Under Armour",
-    body: "An Under Armour event with the whole crew.",
-    tags: ["Under Armour", "2026"],
+    eyebrow: "07 · Roma Half Marathon · 2026",
+    title: "Brooks runs Rome",
+    body: "21.1 km with the crew. Rome runs, Brooks on our feet.",
+    tags: ["Brooks", "Rome", "21.1 km", "Crew"],
+    brand: true,
   },
   {
-    eyebrow: "12 · 2026 · Garmin",
-    title: "Run with Garmin",
+    eyebrow: "08 · Pincio, Rome · 2026",
+    title: "Training day at the Pincio",
+    body: "An Under Armour session in the green, with Piazza di Spagna in view.",
+    tags: ["Under Armour", "Pincio", "Piazza di Spagna", "Rome"],
+    brand: true,
+  },
+  {
+    eyebrow: "09 · Brand interaction · Garmin",
+    title: "Garmin × Amor",
     body: "A Garmin event with the club, and pasta after.",
-    tags: ["Garmin", "2026"],
+    tags: ["Rome", "Run data", "Community", "2026"],
+    brand: true,
   },
   {
-    eyebrow: "13 · Your turn",
+    eyebrow: "10 · Your turn",
     title: "Join the club",
     body: "Free to join, all paces welcome. Pick your door in:",
     cta: true,
   },
-];
+]
 ---
 
 <!doctype html>
@@ -136,7 +123,7 @@ const stops = [
     <main class="w-track" data-track>
       <div class="w-stage">
         {stops.map((s, i) => (
-          <section class:list={["w-panel", { "w-panel--hero": i === 0, "w-panel--cta": s.cta }]} data-panel id={s.cta ? "join" : undefined} aria-labelledby={`stop-${i}`}>
+          <section class:list={["w-panel", { "w-panel--hero": i === 0, "w-panel--brand": s.brand, "w-panel--cta": s.cta }]} data-panel id={s.cta ? "join" : undefined} aria-labelledby={`stop-${i}`}>
             <div class="w-card">
               <p class="w-eyebrow">{s.eyebrow}</p>
               {i === 0 ? <h1 id={`stop-${i}`}>{s.title}</h1> : <h2 id={`stop-${i}`}>{s.title}</h2>}
