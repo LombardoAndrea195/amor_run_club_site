@@ -19,13 +19,13 @@ const desc = site.description;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/brand/icon-192.png" />
+    <link rel="icon" href={import.meta.env.BASE_URL + "brand/icon-192.png"} />
     <title>{title}</title>
     <meta name="description" content={desc} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={desc} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/brand/logo.png" />
+    <meta property="og:image" content={import.meta.env.BASE_URL + "brand/logo.png"} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#efe6b8" />
   </head>
@@ -79,13 +79,13 @@ const desc = site.description;
               playsinline
               preload="metadata"
               aria-hidden="true"
-              data-poster="/video/hero-poster.jpg" data-poster-portrait="/video/hero-poster-portrait.jpg"
+              data-poster={import.meta.env.BASE_URL + "video/hero-poster.jpg"} data-poster-portrait={import.meta.env.BASE_URL + "video/hero-poster-portrait.jpg"}
               data-hero-video
             >
-              <source media="(max-width: 700px)" src="/video/hero-loop-portrait.webm" type="video/webm" />
-              <source media="(max-width: 700px)" src="/video/hero-loop-portrait.mp4" type="video/mp4" />
-              <source src="/video/hero-loop.webm" type="video/webm" />
-              <source src="/video/hero-loop.mp4" type="video/mp4" />
+              <source media="(max-width: 700px)" src={import.meta.env.BASE_URL + "video/hero-loop-portrait.webm"} type="video/webm" />
+              <source media="(max-width: 700px)" src={import.meta.env.BASE_URL + "video/hero-loop-portrait.mp4"} type="video/mp4" />
+              <source src={import.meta.env.BASE_URL + "video/hero-loop.webm"} type="video/webm" />
+              <source src={import.meta.env.BASE_URL + "video/hero-loop.mp4"} type="video/mp4" />
             </video>
             <button class="pinned__toggle" type="button" data-video-toggle aria-pressed="false" data-label-play="Play video" data-label-pause="Pause video">
               <svg viewBox="0 0 20 20" aria-hidden="true" class="i-pause"><rect x="4" y="3" width="4" height="14" /><rect x="12" y="3" width="4" height="14" /></svg>
@@ -231,7 +231,7 @@ const desc = site.description;
           <li><a href={site.links.whatsapp} rel="noopener">WhatsApp</a></li>
         </ul>
       </div>
-      <p class="foot__honest">Design concept for amorrunclub.com — example, not the official site. <a href="/">All directions</a></p>
+      <p class="foot__honest">Design concept for amorrunclub.com — example, not the official site. <a href={import.meta.env.BASE_URL + ""}>All directions</a></p>
     </footer>
 
     <script>

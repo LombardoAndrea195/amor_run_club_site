@@ -7,7 +7,7 @@ import { Image } from "astro:assets";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/brand/icon-192.png" />
+    <link rel="icon" href={import.meta.env.BASE_URL + "brand/icon-192.png"} />
     <title>Amor Run Club · four directions</title>
     <meta name="robots" content="noindex" />
   </head>
@@ -20,7 +20,7 @@ import { Image } from "astro:assets";
         {
           directions.map((d) => (
             <li>
-              <a href={`/${d.slug}/`}>{d.name}</a>
+              <a href={`${import.meta.env.BASE_URL}${d.slug}/`}>{d.name}</a>
               <span>{d.summary}</span>
             </li>
           ))

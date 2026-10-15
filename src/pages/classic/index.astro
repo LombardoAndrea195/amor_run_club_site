@@ -22,7 +22,7 @@ const spans = ["t-big", "t-tall", "t-tall", "t-wide", "", "", "t-tall", "", "", 
     <meta property="og:description" content={site.description} />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#121212" />
-    <link rel="icon" href="/brand/icon-192.png" />
+    <link rel="icon" href={import.meta.env.BASE_URL + "brand/icon-192.png"} />
   </head>
   <body class="classic">
     <a class="skip" href="#main">Skip to content</a>
@@ -45,11 +45,11 @@ const spans = ["t-big", "t-tall", "t-tall", "t-wide", "", "", "t-tall", "", "", 
       <section class="hero" id="top" aria-labelledby="hero-title">
         <div class="hero__media">
           <Image src={photos.groupPiazza.src} alt={photos.groupPiazza.alt} widths={[800, 1400, 2000]} sizes="100vw" loading="eager" fetchpriority="high" class="hero__photo" />
-          <video class="hero__video" muted loop playsinline preload="metadata" aria-hidden="true" data-poster="/video/hero-poster.jpg" data-poster-portrait="/video/hero-poster-portrait.jpg" data-hero-video>
-            <source media="(max-width: 700px)" src="/video/hero-loop-portrait.webm" type="video/webm" />
-            <source media="(max-width: 700px)" src="/video/hero-loop-portrait.mp4" type="video/mp4" />
-            <source src="/video/hero-loop.webm" type="video/webm" />
-            <source src="/video/hero-loop.mp4" type="video/mp4" />
+          <video class="hero__video" muted loop playsinline preload="metadata" aria-hidden="true" data-poster={import.meta.env.BASE_URL + "video/hero-poster.jpg"} data-poster-portrait={import.meta.env.BASE_URL + "video/hero-poster-portrait.jpg"} data-hero-video>
+            <source media="(max-width: 700px)" src={import.meta.env.BASE_URL + "video/hero-loop-portrait.webm"} type="video/webm" />
+            <source media="(max-width: 700px)" src={import.meta.env.BASE_URL + "video/hero-loop-portrait.mp4"} type="video/mp4" />
+            <source src={import.meta.env.BASE_URL + "video/hero-loop.webm"} type="video/webm" />
+            <source src={import.meta.env.BASE_URL + "video/hero-loop.mp4"} type="video/mp4" />
           </video>
         </div>
         <div class="hero__scrim"></div>
@@ -195,7 +195,7 @@ const spans = ["t-big", "t-tall", "t-tall", "t-wide", "", "", "t-tall", "", "", 
       <div class="foot__bottom">
         <p>© <span class="num">2026</span> {site.legalName}</p>
         <p>Design concept for amorrunclub.com — example, not the official site.</p>
-        <a href="/">All directions</a>
+        <a href={import.meta.env.BASE_URL + ""}>All directions</a>
       </div>
     </footer>
 
