@@ -23,6 +23,11 @@
     "@fontsource/limelight": "^5.3.0",
     "@fontsource/shrikhand": "^5.3.0",
     "@fontsource/unifrakturmaguntia": "^5.3.0",
-    "astro": "^7.3.8"
+    "@types/three": "^0.186.0",
+    "astro": "^7.3.8",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.1"
   }
 }

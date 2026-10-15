@@ -100,6 +100,7 @@ export const gallery: Photo[] = [
 ];
 
 export const directions = [
+  { slug: "world", name: "Fly through the club", summary: "An immersive 3D clay Rome: scroll flies the camera from the piazza to the pasta table, no video needed." },
   { slug: "menu", name: "Menu del giorno", summary: "Trattoria world: tomato red and ink on paper, the run served as a menu, sign-up on a waiter’s order pad." },
   { slug: "cartoon", name: "Rubber-hose title card", summary: "The mascot’s 1930s cartoon world: title cards, iris wipes, ink and red." },
   { slug: "journal", name: "The Runner’s Journal", summary: "The club as a broadsheet, after the real Amor x Saucony newsstand edition." },
