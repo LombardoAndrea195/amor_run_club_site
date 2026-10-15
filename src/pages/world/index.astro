@@ -5,6 +5,7 @@ import "../../styles/transitions.css";
 import "../../styles/world.css";
 import { Image } from "astro:assets";
 import { site } from "../../data/site";
+import { founders, schedule } from "../../data/world";
 import mascot from "../../assets/mascot.png";
 
 const base = import.meta.env.BASE_URL;
@@ -18,37 +19,79 @@ const stops = [
     hint: true,
   },
   {
-    eyebrow: "01 · The meeting point",
+    eyebrow: "01 · Every " + schedule.social.day,
     title: "It starts in the piazza",
-    body: "Runners of every pace gather, say hi and warm up together. Meeting points are announced on Instagram.",
-    tags: ["Free", "Every pace"],
+    body: schedule.social.what + " Meeting point and time go up on Instagram.",
+    tags: ["Free", "Every pace", "Testaccio"],
   },
   {
     eyebrow: "02 · The run",
-    title: "Through the streets of Rome",
-    body: "Experience the joy of running together through the beautiful streets of the Eternal City.",
-    tags: ["Social runs", "Rome"],
+    title: "A new route every week",
+    body: "Lungotevere, Testaccio, the ancient centre: we run the streets of the Eternal City together, with music.",
+    tags: ["~5 km", "Music"],
   },
   {
-    eyebrow: "03 · Every pace",
+    eyebrow: "03 · Every " + schedule.intervals.day,
+    title: "Intervals with the coach",
+    body: schedule.intervals.what + " Sprint, recover, repeat. Faster together.",
+    tags: ["Coach", "Intervals", "Evening"],
+  },
+  {
+    eyebrow: "04 · Every pace",
     title: "Nobody gets left behind",
     body: "Seasoned runner or first 5K, our inclusive environment welcomes all levels. Walk, jog or fly.",
     tags: ["All levels", "Easy Run 5K"],
   },
   {
-    eyebrow: "04 · The finish line",
+    eyebrow: "05 · The finish line",
     title: "Eat pasta, run fasta",
-    body: "Runs end at Rome’s pasta shops, with local pasta makers and good company around the table.",
-    tags: ["Pasta", "Friends"],
+    body: "Every run ends at a local spot: pasta shops, bars and aperitivo with the crew.",
+    tags: ["Pasta", "Aperitivo"],
   },
   {
-    eyebrow: "05 · The newsstand",
+    eyebrow: "06 · The founders",
+    title: "Three friends, one club",
+    body: "Meet the three founders behind Amor Run Club.",
+    tags: founders.map((f) => f.name).filter((n) => n !== "Founder"),
+  },
+  {
+    eyebrow: "07 · Saucony × Amor",
     title: "The Runner’s Journal",
     body: "Our Amor × Saucony edition took over a Testaccio newsstand, shoes, stories and all.",
-    tags: ["Amor × Saucony", "Testaccio"],
+    tags: ["Saucony", "Testaccio"],
   },
   {
-    eyebrow: "06 · Your turn",
+    eyebrow: "08 · 2025 · Saucony · London",
+    title: "London calling",
+    body: "In 2025, with Saucony, we took the crew to London. And yes, pasta after.",
+    tags: ["Saucony", "London", "2025"],
+  },
+  {
+    eyebrow: "09 · 2026 · Saucony · Milano",
+    title: "Milano 21",
+    body: "In 2026, 21.1 km in Milan, running with Saucony.",
+    tags: ["Saucony", "Half marathon", "2026"],
+  },
+  {
+    eyebrow: "10 · 2026 · Brooks",
+    title: "Half marathon with Brooks",
+    body: "A half marathon together with Brooks.",
+    tags: ["Brooks", "21.1 km", "2026"],
+  },
+  {
+    eyebrow: "11 · 2026 · Under Armour",
+    title: "Training day with Under Armour",
+    body: "An Under Armour event with the whole crew.",
+    tags: ["Under Armour", "2026"],
+  },
+  {
+    eyebrow: "12 · 2026 · Garmin",
+    title: "Run with Garmin",
+    body: "A Garmin event with the club, and pasta after.",
+    tags: ["Garmin", "2026"],
+  },
+  {
+    eyebrow: "13 · Your turn",
     title: "Join the club",
     body: "Free to join, all paces welcome. Pick your door in:",
     cta: true,
@@ -79,7 +122,7 @@ const stops = [
       <a class="w-btn w-btn--small" href={base + "cartoon/#join"}>Join the club</a>
     </header>
 
-    <canvas class="w-canvas" aria-hidden="true" data-world></canvas>
+    <canvas class="w-canvas" aria-hidden="true" data-world data-founders={JSON.stringify(founders.map((f) => ({ ...f, photo: f.photo ? base + "world/founders/" + f.photo : null })))}></canvas>
     <div class="w-loader" aria-hidden="true"><Image src={mascot} alt="" width={120} /></div>
 
     <nav class="w-rail" aria-label="Scenes">
@@ -98,7 +141,7 @@ const stops = [
               <p class="w-eyebrow">{s.eyebrow}</p>
               {i === 0 ? <h1 id={`stop-${i}`}>{s.title}</h1> : <h2 id={`stop-${i}`}>{s.title}</h2>}
               <p class="w-body">{s.body}</p>
-              {s.tags && (
+              {s.tags && s.tags.length > 0 && (
                 <ul class="w-tags">
                   {s.tags.map((t) => <li>{t}</li>)}
                 </ul>
@@ -135,6 +178,7 @@ const stops = [
           track: document.querySelector("[data-track]")!,
           panels: panels.map((p) => p.querySelector<HTMLElement>(".w-card")!),
           dots: [...document.querySelectorAll<HTMLButtonElement>("[data-dot]")],
+          founders: JSON.parse(document.querySelector<HTMLElement>("[data-world]")!.dataset.founders ?? "[]"),
         });
       // signs are drawn with the display font, so wait for it
       document.fonts.load('64px "Bowlby One"').finally(run);

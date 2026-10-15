@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { piazza, colosseo, parco, pastificio, edicola, finale, clouds, type Scene } from "./scenes";
+import { pista, fondatori, londra, milano, brooks, underArmour, garmin } from "./brands";
 import { palette } from "./kit";
 
 /**
@@ -8,19 +9,38 @@ import { palette } from "./kit";
  * so the visitor is always in control. Every scene keeps living on its own.
  */
 
-const CENTERS = [
-  new THREE.Vector3(0, 0, 0),
-  new THREE.Vector3(36, 2, -24),
-  new THREE.Vector3(74, -1, 2),
-  new THREE.Vector3(110, 1, -24),
-  new THREE.Vector3(146, 0, 4),
-  new THREE.Vector3(182, 2, -18),
-];
+export type Founder = { name: string; photo: string | null; focus?: number };
+
+/** Island order. Keep in sync with the stops in pages/world/index.astro. */
+function buildScenes(founders: Founder[]): Scene[] {
+  return [
+    piazza(),
+    colosseo(),
+    pista(),
+    parco(),
+    pastificio(),
+    fondatori(founders.map((f) => f.photo), founders.map((f) => f.name), founders.map((f) => f.focus ?? 0.5)),
+    edicola(),
+    londra(),
+    milano(),
+    brooks(),
+    underArmour(),
+    garmin(),
+    finale(),
+  ];
+}
+
+const CENTERS = Array.from({ length: 13 }, (_, i) =>
+  new THREE.Vector3(i * 36, [0, 2, -1, 1][i % 4], i % 2 ? -24 : 2),
+);
 
 /** Seconds of scroll weight spent hovering on each anchor before flying on. */
 const HOLD = 1.1;
 
 type Key = { pos: THREE.Vector3; look: THREE.Vector3; anchor?: number };
+
+/** Dive look-at height per island: the founders' portrait wall is tall and needs headroom. */
+const LOOK_Y = [1.8, 1.8, 1.8, 1.8, 1.8, 3, 1.8, 1.8, 1.8, 1.8, 1.8, 1.8, 1.8];
 
 function buildKeys(portrait: boolean) {
   const k = portrait ? 1.4 : 1;
@@ -37,7 +57,7 @@ function buildKeys(portrait: boolean) {
     // dive: low, inside the scene
     keys.push({
       pos: c.clone().add(last ? new THREE.Vector3(0, 9 * k, 30 * k) : new THREE.Vector3(-side * 4 * k, 6.5 * k, 15 * k)),
-      look: c.clone().add(new THREE.Vector3(0, last ? 3 : 1.8, 0)),
+      look: c.clone().add(new THREE.Vector3(0, last ? 3 : LOOK_Y[i], 0)),
       anchor: i + 1,
     });
     if (!last) {
@@ -57,8 +77,9 @@ export function initWorld(opts: {
   track: HTMLElement;
   panels: HTMLElement[];
   dots: HTMLButtonElement[];
+  founders: Founder[];
 }) {
-  const { canvas, track, panels, dots } = opts;
+  const { canvas, track, panels, dots, founders } = opts;
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const small = matchMedia("(max-width: 760px)").matches;
 
@@ -95,7 +116,7 @@ export function initWorld(opts: {
   sun.shadow.normalBias = 0.03;
   scene.add(sun, sun.target);
 
-  const scenes: Scene[] = [piazza(), colosseo(), parco(), pastificio(), edicola(), finale()];
+  const scenes = buildScenes(founders);
   scenes.forEach((s, i) => {
     s.group.position.copy(CENTERS[i]);
     s.group.rotation.y = i % 2 ? 0.25 : -0.2;
@@ -107,7 +128,8 @@ export function initWorld(opts: {
     const m = CENTERS[i].clone().lerp(CENTERS[i + 1], 0.5);
     cloudSpots.push(m.clone().add(new THREE.Vector3(-6, 12, -10)), m.clone().add(new THREE.Vector3(8, -14, 6)));
   }
-  cloudSpots.push(new THREE.Vector3(-30, 8, -30), new THREE.Vector3(-22, -16, 20), new THREE.Vector3(210, 10, -40), new THREE.Vector3(200, -12, 10));
+  const end = CENTERS[CENTERS.length - 1].x;
+  cloudSpots.push(new THREE.Vector3(-30, 8, -30), new THREE.Vector3(-22, -16, 20), new THREE.Vector3(end + 28, 10, -40), new THREE.Vector3(end + 18, -12, 10));
   const sky = clouds(cloudSpots);
   scene.add(sky);
 
@@ -143,7 +165,7 @@ export function initWorld(opts: {
     camera.aspect = innerWidth / innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(innerWidth, innerHeight, false);
-    track.style.height = `${Math.round(total * (small ? 70 : 80))}vh`;
+    track.style.height = `${Math.round(total * (small ? 50 : 58))}vh`;
   }
 
   function uFromS(s: number) {

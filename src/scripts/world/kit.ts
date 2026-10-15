@@ -220,16 +220,25 @@ export function cheerer(shirt?: string): Runner {
 }
 
 /** Runner travelling an ellipse around a centre, at its own pace. */
-export function lap(r: Runner, a: number, b: number, speed: number, start = rand() * Math.PI * 2) {
+export function lap(
+  r: Runner,
+  a: number,
+  b: number,
+  speed: number | ((t: number) => number),
+  start = rand() * Math.PI * 2,
+) {
   let ang = start;
+  let clock = rand() * 10;
   const run = r.update;
   r.update = (t, dt) => {
-    ang += (speed / ((a + b) / 2)) * dt;
+    const v = typeof speed === "number" ? speed : speed(t);
+    ang += (v / ((a + b) / 2)) * dt;
     const x = Math.cos(ang) * a;
     const z = Math.sin(ang) * b;
     r.group.position.set(x, TOP, z);
     r.group.rotation.y = Math.atan2(-Math.sin(ang) * a, Math.cos(ang) * b);
-    run(t * (0.6 + speed * 0.12), dt);
+    clock += dt * (0.6 + v * 0.12);
+    run(clock, dt);
   };
   return r;
 }
