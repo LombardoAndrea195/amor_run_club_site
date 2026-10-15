@@ -1,0 +1,8 @@
+[     956ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/video/hero-poster.jpg:0
+[     956ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/video/hero-loop.mp4:0
+[    8922ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/video/hero-loop.mp4:0
+[    8929ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/video/hero-poster.jpg:0
+[   11084ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/video/hero-poster.jpg:0
+[   11092ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/video/hero-loop-portrait.mp4:0
+[   11108ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/video/hero-loop.mp4:0
+[   39074ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4321/video/hero-poster.jpg:0

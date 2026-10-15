@@ -1,0 +1,188 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/>
+<meta name="viewport" content="width=1920, height=1080"/>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>*{margin:0;padding:0;box-sizing:border-box}html,body{width:1920px;height:1080px;overflow:hidden;background:#111}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden}
+.shot{position:absolute;inset:0;overflow:hidden}.shot img{width:100%;height:100%;object-fit:cover;display:block}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='512' height='512'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.35))}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="10" data-width="1920" data-height="1080">
+<div id="s0" class="clip shot" data-start="0.00" data-duration="1.60" data-track-index="1"><img id="i0" src="assets/group-piazza.jpg"></div>
+<div id="s1" class="clip shot" data-start="1.60" data-duration="0.80" data-track-index="1"><img id="i1" src="assets/run-park-cheer.jpg"></div>
+<div id="s2" class="clip shot" data-start="2.40" data-duration="1.02" data-track-index="1"><img id="i2" src="assets/handshake-piazza.jpg"></div>
+<div id="s3" class="clip shot" data-start="2.98" data-duration="1.42" data-track-index="2"><img id="i3" src="assets/crowd-saucony-van.jpg"></div>
+<div id="s4" class="clip shot" data-start="4.40" data-duration="0.80" data-track-index="1"><img id="i4" src="assets/pasta-shop-team.jpg"></div>
+<div id="s5" class="clip shot" data-start="5.20" data-duration="0.80" data-track-index="1"><img id="i5" src="assets/nonno-ravioli.jpg"></div>
+<div id="s6" class="clip shot" data-start="6.00" data-duration="0.80" data-track-index="1"><img id="i6" src="assets/wings-tees.jpg"></div>
+<div id="s7" class="clip shot" data-start="6.80" data-duration="0.80" data-track-index="1"><img id="i7" src="assets/girl-journal.jpg"></div>
+<div id="s8" class="clip shot" data-start="7.60" data-duration="1.42" data-track-index="1"><img id="i8" src="assets/hanging-shoes.jpg"></div>
+<div id="s9" class="clip shot" data-start="8.58" data-duration="1.42" data-track-index="2"><img id="i9" src="assets/group-piazza.jpg"></div>
+<div id="vig" class="clip" data-start="0" data-duration="10" data-track-index="3"></div>
+<div id="grain" class="clip" data-start="0" data-duration="10" data-track-index="4"></div>
+</div><script>const tl=gsap.timeline({paused:true});
+tl.fromTo("#i0",{scale:1.08,xPercent:0},{scale:1.187,xPercent:0,duration:1.60,ease:"none"},0.00);
+tl.fromTo("#i1",{scale:1.12,xPercent:0},{scale:1.18,xPercent:-1,duration:0.80,ease:"none"},1.60);
+tl.fromTo("#i2",{scale:1.15,xPercent:2},{scale:1.15,xPercent:-2,duration:1.02,ease:"none"},2.40);
+tl.to("#s2",{xPercent:-60,filter:"blur(24px)",duration:0.22,ease:"power2.inOut"},2.98);
+tl.fromTo("#i3",{scale:1.1,xPercent:0},{scale:1.16,xPercent:0,duration:1.42,ease:"none"},2.98);
+tl.fromTo("#s3",{xPercent:100,filter:"blur(24px)"},{xPercent:0,filter:"blur(0px)",duration:0.22,ease:"power2.inOut"},2.98);
+tl.fromTo("#i4",{scale:1.18,xPercent:0},{scale:1.12,xPercent:0,duration:0.80,ease:"none"},4.40);
+tl.fromTo("#i5",{scale:1.1,xPercent:0},{scale:1.2,xPercent:0,duration:0.80,ease:"none"},5.20);
+tl.fromTo("#i6",{scale:1.12,xPercent:-2},{scale:1.16,xPercent:2,duration:0.80,ease:"none"},6.00);
+tl.fromTo("#i7",{scale:1.16,xPercent:0},{scale:1.1,xPercent:0,duration:0.80,ease:"none"},6.80);
+tl.fromTo("#i8",{scale:1.1,xPercent:0},{scale:1.17,xPercent:1,duration:1.42,ease:"none"},7.60);
+tl.to("#s8",{xPercent:-60,filter:"blur(24px)",duration:0.22,ease:"power2.inOut"},8.58);
+tl.fromTo("#i9",{scale:1,xPercent:0},{scale:1.08,xPercent:0,duration:1.42,ease:"none"},8.58);
+tl.fromTo("#s9",{xPercent:100,filter:"blur(24px)"},{xPercent:0,filter:"blur(0px)",duration:0.22,ease:"power2.inOut"},8.58);
+tl.set("#grain",{backgroundPosition:"0px 0px"},0.000);
+tl.set("#grain",{backgroundPosition:"274px 30px"},0.067);
+tl.set("#grain",{backgroundPosition:"36px 60px"},0.133);
+tl.set("#grain",{backgroundPosition:"310px 90px"},0.200);
+tl.set("#grain",{backgroundPosition:"72px 120px"},0.267);
+tl.set("#grain",{backgroundPosition:"346px 150px"},0.333);
+tl.set("#grain",{backgroundPosition:"108px 180px"},0.400);
+tl.set("#grain",{backgroundPosition:"382px 210px"},0.467);
+tl.set("#grain",{backgroundPosition:"144px 240px"},0.533);
+tl.set("#grain",{backgroundPosition:"418px 270px"},0.600);
+tl.set("#grain",{backgroundPosition:"180px 300px"},0.667);
+tl.set("#grain",{backgroundPosition:"454px 330px"},0.733);
+tl.set("#grain",{backgroundPosition:"216px 360px"},0.800);
+tl.set("#grain",{backgroundPosition:"490px 390px"},0.867);
+tl.set("#grain",{backgroundPosition:"252px 420px"},0.933);
+tl.set("#grain",{backgroundPosition:"14px 450px"},1.000);
+tl.set("#grain",{backgroundPosition:"288px 480px"},1.067);
+tl.set("#grain",{backgroundPosition:"50px 510px"},1.133);
+tl.set("#grain",{backgroundPosition:"324px 28px"},1.200);
+tl.set("#grain",{backgroundPosition:"86px 58px"},1.267);
+tl.set("#grain",{backgroundPosition:"360px 88px"},1.333);
+tl.set("#grain",{backgroundPosition:"122px 118px"},1.400);
+tl.set("#grain",{backgroundPosition:"396px 148px"},1.467);
+tl.set("#grain",{backgroundPosition:"158px 178px"},1.533);
+tl.set("#grain",{backgroundPosition:"432px 208px"},1.600);
+tl.set("#grain",{backgroundPosition:"194px 238px"},1.667);
+tl.set("#grain",{backgroundPosition:"468px 268px"},1.733);
+tl.set("#grain",{backgroundPosition:"230px 298px"},1.800);
+tl.set("#grain",{backgroundPosition:"504px 328px"},1.867);
+tl.set("#grain",{backgroundPosition:"266px 358px"},1.933);
+tl.set("#grain",{backgroundPosition:"28px 388px"},2.000);
+tl.set("#grain",{backgroundPosition:"302px 418px"},2.067);
+tl.set("#grain",{backgroundPosition:"64px 448px"},2.133);
+tl.set("#grain",{backgroundPosition:"338px 478px"},2.200);
+tl.set("#grain",{backgroundPosition:"100px 508px"},2.267);
+tl.set("#grain",{backgroundPosition:"374px 26px"},2.333);
+tl.set("#grain",{backgroundPosition:"136px 56px"},2.400);
+tl.set("#grain",{backgroundPosition:"410px 86px"},2.467);
+tl.set("#grain",{backgroundPosition:"172px 116px"},2.533);
+tl.set("#grain",{backgroundPosition:"446px 146px"},2.600);
+tl.set("#grain",{backgroundPosition:"208px 176px"},2.667);
+tl.set("#grain",{backgroundPosition:"482px 206px"},2.733);
+tl.set("#grain",{backgroundPosition:"244px 236px"},2.800);
+tl.set("#grain",{backgroundPosition:"6px 266px"},2.867);
+tl.set("#grain",{backgroundPosition:"280px 296px"},2.933);
+tl.set("#grain",{backgroundPosition:"42px 326px"},3.000);
+tl.set("#grain",{backgroundPosition:"316px 356px"},3.067);
+tl.set("#grain",{backgroundPosition:"78px 386px"},3.133);
+tl.set("#grain",{backgroundPosition:"352px 416px"},3.200);
+tl.set("#grain",{backgroundPosition:"114px 446px"},3.267);
+tl.set("#grain",{backgroundPosition:"388px 476px"},3.333);
+tl.set("#grain",{backgroundPosition:"150px 506px"},3.400);
+tl.set("#grain",{backgroundPosition:"424px 24px"},3.467);
+tl.set("#grain",{backgroundPosition:"186px 54px"},3.533);
+tl.set("#grain",{backgroundPosition:"460px 84px"},3.600);
+tl.set("#grain",{backgroundPosition:"222px 114px"},3.667);
+tl.set("#grain",{backgroundPosition:"496px 144px"},3.733);
+tl.set("#grain",{backgroundPosition:"258px 174px"},3.800);
+tl.set("#grain",{backgroundPosition:"20px 204px"},3.867);
+tl.set("#grain",{backgroundPosition:"294px 234px"},3.933);
+tl.set("#grain",{backgroundPosition:"56px 264px"},4.000);
+tl.set("#grain",{backgroundPosition:"330px 294px"},4.067);
+tl.set("#grain",{backgroundPosition:"92px 324px"},4.133);
+tl.set("#grain",{backgroundPosition:"366px 354px"},4.200);
+tl.set("#grain",{backgroundPosition:"128px 384px"},4.267);
+tl.set("#grain",{backgroundPosition:"402px 414px"},4.333);
+tl.set("#grain",{backgroundPosition:"164px 444px"},4.400);
+tl.set("#grain",{backgroundPosition:"438px 474px"},4.467);
+tl.set("#grain",{backgroundPosition:"200px 504px"},4.533);
+tl.set("#grain",{backgroundPosition:"474px 22px"},4.600);
+tl.set("#grain",{backgroundPosition:"236px 52px"},4.667);
+tl.set("#grain",{backgroundPosition:"510px 82px"},4.733);
+tl.set("#grain",{backgroundPosition:"272px 112px"},4.800);
+tl.set("#grain",{backgroundPosition:"34px 142px"},4.867);
+tl.set("#grain",{backgroundPosition:"308px 172px"},4.933);
+tl.set("#grain",{backgroundPosition:"70px 202px"},5.000);
+tl.set("#grain",{backgroundPosition:"344px 232px"},5.067);
+tl.set("#grain",{backgroundPosition:"106px 262px"},5.133);
+tl.set("#grain",{backgroundPosition:"380px 292px"},5.200);
+tl.set("#grain",{backgroundPosition:"142px 322px"},5.267);
+tl.set("#grain",{backgroundPosition:"416px 352px"},5.333);
+tl.set("#grain",{backgroundPosition:"178px 382px"},5.400);
+tl.set("#grain",{backgroundPosition:"452px 412px"},5.467);
+tl.set("#grain",{backgroundPosition:"214px 442px"},5.533);
+tl.set("#grain",{backgroundPosition:"488px 472px"},5.600);
+tl.set("#grain",{backgroundPosition:"250px 502px"},5.667);
+tl.set("#grain",{backgroundPosition:"12px 20px"},5.733);
+tl.set("#grain",{backgroundPosition:"286px 50px"},5.800);
+tl.set("#grain",{backgroundPosition:"48px 80px"},5.867);
+tl.set("#grain",{backgroundPosition:"322px 110px"},5.933);
+tl.set("#grain",{backgroundPosition:"84px 140px"},6.000);
+tl.set("#grain",{backgroundPosition:"358px 170px"},6.067);
+tl.set("#grain",{backgroundPosition:"120px 200px"},6.133);
+tl.set("#grain",{backgroundPosition:"394px 230px"},6.200);
+tl.set("#grain",{backgroundPosition:"156px 260px"},6.267);
+tl.set("#grain",{backgroundPosition:"430px 290px"},6.333);
+tl.set("#grain",{backgroundPosition:"192px 320px"},6.400);
+tl.set("#grain",{backgroundPosition:"466px 350px"},6.467);
+tl.set("#grain",{backgroundPosition:"228px 380px"},6.533);
+tl.set("#grain",{backgroundPosition:"502px 410px"},6.600);
+tl.set("#grain",{backgroundPosition:"264px 440px"},6.667);
+tl.set("#grain",{backgroundPosition:"26px 470px"},6.733);
+tl.set("#grain",{backgroundPosition:"300px 500px"},6.800);
+tl.set("#grain",{backgroundPosition:"62px 18px"},6.867);
+tl.set("#grain",{backgroundPosition:"336px 48px"},6.933);
+tl.set("#grain",{backgroundPosition:"98px 78px"},7.000);
+tl.set("#grain",{backgroundPosition:"372px 108px"},7.067);
+tl.set("#grain",{backgroundPosition:"134px 138px"},7.133);
+tl.set("#grain",{backgroundPosition:"408px 168px"},7.200);
+tl.set("#grain",{backgroundPosition:"170px 198px"},7.267);
+tl.set("#grain",{backgroundPosition:"444px 228px"},7.333);
+tl.set("#grain",{backgroundPosition:"206px 258px"},7.400);
+tl.set("#grain",{backgroundPosition:"480px 288px"},7.467);
+tl.set("#grain",{backgroundPosition:"242px 318px"},7.533);
+tl.set("#grain",{backgroundPosition:"4px 348px"},7.600);
+tl.set("#grain",{backgroundPosition:"278px 378px"},7.667);
+tl.set("#grain",{backgroundPosition:"40px 408px"},7.733);
+tl.set("#grain",{backgroundPosition:"314px 438px"},7.800);
+tl.set("#grain",{backgroundPosition:"76px 468px"},7.867);
+tl.set("#grain",{backgroundPosition:"350px 498px"},7.933);
+tl.set("#grain",{backgroundPosition:"112px 16px"},8.000);
+tl.set("#grain",{backgroundPosition:"386px 46px"},8.067);
+tl.set("#grain",{backgroundPosition:"148px 76px"},8.133);
+tl.set("#grain",{backgroundPosition:"422px 106px"},8.200);
+tl.set("#grain",{backgroundPosition:"184px 136px"},8.267);
+tl.set("#grain",{backgroundPosition:"458px 166px"},8.333);
+tl.set("#grain",{backgroundPosition:"220px 196px"},8.400);
+tl.set("#grain",{backgroundPosition:"494px 226px"},8.467);
+tl.set("#grain",{backgroundPosition:"256px 256px"},8.533);
+tl.set("#grain",{backgroundPosition:"18px 286px"},8.600);
+tl.set("#grain",{backgroundPosition:"292px 316px"},8.667);
+tl.set("#grain",{backgroundPosition:"54px 346px"},8.733);
+tl.set("#grain",{backgroundPosition:"328px 376px"},8.800);
+tl.set("#grain",{backgroundPosition:"90px 406px"},8.867);
+tl.set("#grain",{backgroundPosition:"364px 436px"},8.933);
+tl.set("#grain",{backgroundPosition:"126px 466px"},9.000);
+tl.set("#grain",{backgroundPosition:"400px 496px"},9.067);
+tl.set("#grain",{backgroundPosition:"162px 14px"},9.133);
+tl.set("#grain",{backgroundPosition:"436px 44px"},9.200);
+tl.set("#grain",{backgroundPosition:"198px 74px"},9.267);
+tl.set("#grain",{backgroundPosition:"472px 104px"},9.333);
+tl.set("#grain",{backgroundPosition:"234px 134px"},9.400);
+tl.set("#grain",{backgroundPosition:"508px 164px"},9.467);
+tl.set("#grain",{backgroundPosition:"270px 194px"},9.533);
+tl.set("#grain",{backgroundPosition:"32px 224px"},9.600);
+tl.set("#grain",{backgroundPosition:"306px 254px"},9.667);
+tl.set("#grain",{backgroundPosition:"68px 284px"},9.733);
+tl.set("#grain",{backgroundPosition:"342px 314px"},9.800);
+tl.set("#grain",{backgroundPosition:"104px 344px"},9.867);
+tl.set("#grain",{backgroundPosition:"378px 374px"},9.933);
+window.__timelines["main"]=tl;tl.seek(0);</script></body></html>

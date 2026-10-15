@@ -1,0 +1,152 @@
+- generic [active] [ref=f2e1]:
+  - link "Skip to content" [ref=f2e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f2e3]:
+    - link "Amor Run Club, top of page" [ref=f2e4] [cursor=pointer]:
+      - /url: "#main"
+    - navigation "Main" [ref=f2e5]:
+      - link "Sign up" [ref=f2e6] [cursor=pointer]:
+        - /url: "#comanda"
+  - main [ref=f2e7]:
+    - region [ref=f2e8]:
+      - generic [ref=f2e9]:
+        - img "Amor Run Club" [ref=f2e10]
+        - heading "Run, laugh and connect" [level=1] [ref=f2e11]
+        - paragraph [ref=f2e12]: Join Amor Run Club
+        - paragraph [ref=f2e13]: Free social runs in Rome, then pasta. Every pace at the table.
+        - generic [ref=f2e14]:
+          - link "Sign up" [ref=f2e15] [cursor=pointer]:
+            - /url: "#comanda"
+          - generic [ref=f2e16]: no reservation needed
+      - figure [ref=f2e17]:
+        - generic [ref=f2e18]:
+          - img "Around a hundred Amor Run Club members posing together in a sunny Roman piazza" [ref=f2e19]
+          - button "Play video" [pressed] [ref=f2e20] [cursor=pointer]
+    - region [ref=f2e26]:
+      - generic [ref=f2e27]:
+        - heading "Antipasto Meet up and explore Rome" [level=2] [ref=f2e28]:
+          - text: Antipasto
+          - generic [ref=f2e29]: Meet up and explore Rome
+        - generic [ref=f2e30]: free
+      - generic [ref=f2e31]:
+        - generic [ref=f2e32]:
+          - paragraph [ref=f2e33]: Be a part of the Amor Run Club community and experience the joy of running together through the beautiful streets of Rome. Whether you’re looking to improve your fitness, make new friends, or simply enjoy the city from a different perspective, we welcome runners of all levels. Join us for our weekly runs and social gatherings, and make the most of your time in the Eternal City.
+          - link "Join the club on Strava" [ref=f2e34] [cursor=pointer]:
+            - /url: https://www.strava.com/clubs/1224988
+        - img "Two runners in club t-shirts clasping hands and laughing on a cobbled street" [ref=f2e36]
+    - region [ref=f2e37]:
+      - generic [ref=f2e38]:
+        - heading "Primo The run" [level=2] [ref=f2e39]:
+          - text: Primo
+          - generic [ref=f2e40]: The run
+        - generic [ref=f2e41]: all paces
+      - generic [ref=f2e42]:
+        - img "Runners smiling and waving at the camera during a group run in the park" [ref=f2e44]
+        - generic [ref=f2e45]:
+          - article [ref=f2e46]:
+            - heading "Easy Run 5K" [level=3] [ref=f2e47]
+            - paragraph [ref=f2e48]: 5 km · easy pace, nobody left behind
+            - paragraph [ref=f2e49]: Date, time and meeting point are announced on Instagram. You can stay updated on all our activities through our Instagram page.
+          - link "Follow on Instagram @amor_runclub" [ref=f2e50] [cursor=pointer]:
+            - /url: https://www.instagram.com/amor_runclub/
+    - region "House special" [ref=f2e51]:
+      - blockquote [ref=f2e52]:
+        - paragraph [ref=f2e53]: “Eat pasta run fasta.”
+        - generic [ref=f2e54]: — Anonymous runner
+    - region [ref=f2e55]:
+      - generic [ref=f2e56]:
+        - heading "Secondo Pasta after" [level=2] [ref=f2e57]:
+          - text: Secondo
+          - generic [ref=f2e58]: Pasta after
+        - generic [ref=f2e59]: free
+      - generic [ref=f2e60]:
+        - generic [ref=f2e61]:
+          - paragraph [ref=f2e62]: Amor Run Club in Rome is your gateway to fitness and fun! Join our vibrant community of runners, where every stride brings joy and new friendships. Whether you’re a seasoned runner or just starting out, our inclusive environment welcomes all levels. We organize scenic runs through Rome’s beautiful landscapes, followed by social events to bond over shared passions. With Amor Run Club, fitness becomes a delightful journey. Come run with us and discover the magic of running together!
+          - link "Join our WhatsApp community" [ref=f2e63] [cursor=pointer]:
+            - /url: https://chat.whatsapp.com/H0ZIIUmXV1ND4bi73CpGDf
+        - generic [ref=f2e64]:
+          - img "Club members and the pasta maker behind the counter with fresh pasta and orange running shoes" [ref=f2e66]
+          - img "An elderly pasta maker holding a tray of fresh ravioli with running shoes on his shoulders" [ref=f2e68]
+          - img "A runner weighing an orange running shoe on the pasta shop scale" [ref=f2e70]
+    - region [ref=f2e71]:
+      - generic [ref=f2e72]:
+        - heading "Dolce The community" [level=2] [ref=f2e73]:
+          - text: Dolce
+          - generic [ref=f2e74]: The community
+        - generic [ref=f2e75]: all you can see
+      - list [ref=f2e76]:
+        - listitem [ref=f2e77]:
+          - img "A runner laughing while holding up a copy of The Runner’s Journal" [ref=f2e78]
+        - listitem [ref=f2e79]:
+          - img "Club members and the pasta maker behind the counter with fresh pasta and orange running shoes" [ref=f2e80]
+        - listitem [ref=f2e81]:
+          - img "A Roman newsstand dressed in Saucony and Amor Run Club red panels" [ref=f2e82]
+        - listitem [ref=f2e83]:
+          - img "Runners from behind wearing black Roma t-shirts with winged-foot prints" [ref=f2e84]
+        - listitem [ref=f2e85]:
+          - img "An elderly pasta maker holding a tray of fresh ravioli with running shoes on his shoulders" [ref=f2e86]
+        - listitem [ref=f2e87]:
+          - img "Copies of The Runner’s Journal, Amor x Saucony, stacked on a red stand" [ref=f2e88]
+        - listitem [ref=f2e89]:
+          - img "Runner entering a Testaccio pasta shop with an Amor Run Club banner in the window" [ref=f2e90]
+        - listitem [ref=f2e91]:
+          - img "Two runners reading The Runner’s Journal together" [ref=f2e92]
+        - listitem [ref=f2e93]:
+          - img "A pair of orange running shoes hanging by their laces in the sun" [ref=f2e94]
+        - listitem [ref=f2e95]:
+          - img "The newsstand owner proudly holding a yellow running shoe" [ref=f2e96]
+        - listitem [ref=f2e97]:
+          - img "A runner weighing an orange running shoe on the pasta shop scale" [ref=f2e98]
+        - listitem [ref=f2e99]:
+          - img "A rack full of The Runner’s Journal newspapers inside the newsstand" [ref=f2e100]
+        - listitem [ref=f2e101]:
+          - img "A shop window displaying running shoes between rows of newspapers" [ref=f2e102]
+        - listitem [ref=f2e103]:
+          - img "Running shoes and The Runner’s Journal in warm afternoon light" [ref=f2e104]
+    - region [ref=f2e105]:
+      - generic [ref=f2e106]:
+        - generic [ref=f2e107]:
+          - heading "Sign up" [level=2] [ref=f2e108]
+          - paragraph [ref=f2e109]: "tavolo: Amor Run Club · coperti: tutti"
+        - generic [ref=f2e110]:
+          - list [ref=f2e111]:
+            - listitem [ref=f2e112]:
+              - generic [ref=f2e113]: Name
+              - textbox "Name" [ref=f2e114]
+            - listitem [ref=f2e115]:
+              - generic [ref=f2e116]: Email
+              - textbox "Email" [ref=f2e117]
+            - listitem [ref=f2e118]:
+              - generic [ref=f2e119]: Instagram (optional)
+              - textbox "Instagram (optional)" [ref=f2e120]:
+                - /placeholder: "@yourhandle"
+            - listitem [ref=f2e121]:
+              - generic [ref=f2e122]:
+                - checkbox "I accept the Release of Liability" [ref=f2e123] [cursor=pointer]
+                - generic [ref=f2e124] [cursor=pointer]: I accept the Release of Liability
+              - button "Read the Release of Liability" [ref=f2e125] [cursor=pointer]
+          - button "Sign up" [ref=f2e126] [cursor=pointer]
+  - contentinfo [ref=f2e129]:
+    - generic [ref=f2e130]:
+      - generic [ref=f2e131]:
+        - paragraph [ref=f2e132]: © 2026 Amor Run Club A.S.D.
+        - paragraph [ref=f2e133]: Via Agostino Magliani 6, Rome, ItalyVAT 17811321003 · Tax code 96605360583
+      - list [ref=f2e134]:
+        - listitem [ref=f2e135]:
+          - link "Instagram" [ref=f2e136] [cursor=pointer]:
+            - /url: https://www.instagram.com/amor_runclub/
+        - listitem [ref=f2e137]:
+          - link "Strava" [ref=f2e138] [cursor=pointer]:
+            - /url: https://www.strava.com/clubs/1224988
+        - listitem [ref=f2e139]:
+          - link "WhatsApp" [ref=f2e140] [cursor=pointer]:
+            - /url: https://chat.whatsapp.com/H0ZIIUmXV1ND4bi73CpGDf
+    - paragraph [ref=f2e141]:
+      - text: Design concept for amorrunclub.com — example, not the official site.
+      - link "All directions" [ref=f2e142] [cursor=pointer]:
+        - /url: /
+  - generic [ref=f2e145]:
+    - button [ref=f2e146]
+    - button [ref=f2e152]
+    - button [ref=f2e156]
+    - button [ref=f2e164]

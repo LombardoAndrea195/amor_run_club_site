@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "historyId": "f362ddee-f641-4335-bf33-644ebaf314e7",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "CLAUDE.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "assets/crowd-saucony-van.jpg": {
+      "hash": "525b5805223562660687b3b06dc5129414fa444ee8772beac730401a4194d695",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/52/525b5805223562660687b3b06dc5129414fa444ee8772beac730401a4194d695"
+    },
+    "assets/girl-journal.jpg": {
+      "hash": "d6288c2f6f3a5f42bff3c183a13ded660635d4b554dcd2354fb8055fb6606295",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/d6/d6288c2f6f3a5f42bff3c183a13ded660635d4b554dcd2354fb8055fb6606295"
+    },
+    "assets/handshake-piazza.jpg": {
+      "hash": "a7597cd72db947dc2b527d09a177f1fe28d937ee37497f61614c2692db6549b9",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/a7/a7597cd72db947dc2b527d09a177f1fe28d937ee37497f61614c2692db6549b9"
+    },
+    "assets/hanging-shoes.jpg": {
+      "hash": "08d1e7cb7810b093a62fb86da8275c863fdef039ed55acc3efcd5c3639de141a",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/08/08d1e7cb7810b093a62fb86da8275c863fdef039ed55acc3efcd5c3639de141a"
+    },
+    "assets/mascot.png": {
+      "hash": "e15278632e7b1a52b0b6604aee814d35301657a9b01ac0a856c4edcf2d96c83f",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/e1/e15278632e7b1a52b0b6604aee814d35301657a9b01ac0a856c4edcf2d96c83f"
+    },
+    "assets/nonno-ravioli.jpg": {
+      "hash": "7bbd3a29c2b6ada176301d21801746f1f3b89bb5f84e6d5ad5d2a4eefb29a968",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/7b/7bbd3a29c2b6ada176301d21801746f1f3b89bb5f84e6d5ad5d2a4eefb29a968"
+    },
+    "assets/pasta-shop-team.jpg": {
+      "hash": "8cc37c8609242198f6de516e1f3724ad014754410ff496bc374042e8c5b098d7",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/8c/8cc37c8609242198f6de516e1f3724ad014754410ff496bc374042e8c5b098d7"
+    },
+    "assets/run-park-cheer.jpg": {
+      "hash": "82ee6d354182f053da85f2323e7855b147ca94146ddceaad42ff12933c32d40d",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/82/82ee6d354182f053da85f2323e7855b147ca94146ddceaad42ff12933c32d40d"
+    },
+    "assets/wings-tees.jpg": {
+      "hash": "48bcd4532b73d42c9657a22f6ac3ae67a9f75c1c1899060821af36e147b515c6",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/48/48bcd4532b73d42c9657a22f6ac3ae67a9f75c1c1899060821af36e147b515c6"
+    },
+    "hyperframes.json": {
+      "hash": "ad5dadeef78a520800a9e5cdd27a92ff5ac37f11b6a07f611b6b52b9f8c79a17",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/ad/ad5dadeef78a520800a9e5cdd27a92ff5ac37f11b6a07f611b6b52b9f8c79a17"
+    },
+    "index.html": {
+      "hash": "769e312d082abc498b2cd61855372b63a06452570d653e32be76a13b7e1dee94",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/76/769e312d082abc498b2cd61855372b63a06452570d653e32be76a13b7e1dee94"
+    },
+    "meta.json": {
+      "hash": "d7057cefbf63f5e4dcd95164f9a07edf5e2dbe53c4cb730e7f1cfd498558ed08",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/d7/d7057cefbf63f5e4dcd95164f9a07edf5e2dbe53c4cb730e7f1cfd498558ed08"
+    },
+    "package.json": {
+      "hash": "ad2ff1945dcf39f5cd7611123f40b5f5f8c6636d4804c5a668f78dd22c8920b7",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/ad/ad2ff1945dcf39f5cd7611123f40b5f5f8c6636d4804c5a668f78dd22c8920b7"
+    },
+    "assets/group-piazza.jpg": {
+      "hash": "715775dc3b68f2daa1a698d8e90cfdc8129c206df92ac4cb81ed31c63731d9c8",
+      "content": "/Users/andrealombardo/.cache/hyperframes/history/f362ddee-f641-4335-bf33-644ebaf314e7/blobs/71/715775dc3b68f2daa1a698d8e90cfdc8129c206df92ac4cb81ed31c63731d9c8"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "20a45a95-c1a2-481c-ad7a-689e2d735fc3",
+      "completedAt": 1792046208822,
+      "output": "/Users/andrealombardo/Development/Personal/Experiments/experiment_amor/video-src/raw-port.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

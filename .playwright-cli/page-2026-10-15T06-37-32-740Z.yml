@@ -1,0 +1,251 @@
+- generic [ref=f5e1]:
+  - link "Skip to content" [ref=f5e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f5e3]:
+    - link "Amor Run Club, top of page" [ref=f5e4] [cursor=pointer]:
+      - /url: "#main"
+    - navigation "Main" [ref=f5e5]:
+      - link "Sign up" [ref=f5e6] [cursor=pointer]:
+        - /url: "#comanda"
+  - main [ref=f5e7]:
+    - region [ref=f5e8]:
+      - generic [ref=f5e9]:
+        - img "Amor Run Club" [ref=f5e10]
+        - heading "Run, laugh and connect" [level=1] [ref=f5e11]
+        - paragraph [ref=f5e12]: Join Amor Run Club
+        - paragraph [ref=f5e13]: Free social runs in Rome, then pasta. Every pace at the table.
+        - generic [ref=f5e14]:
+          - link "Sign up" [ref=f5e15] [cursor=pointer]:
+            - /url: "#comanda"
+          - generic [ref=f5e16]: no reservation needed
+      - figure [ref=f5e17]:
+        - generic [ref=f5e18]:
+          - img "Around a hundred Amor Run Club members posing together in a sunny Roman piazza" [ref=f5e19]
+          - button "Pause video" [ref=f5e21] [cursor=pointer]
+    - region [ref=f5e28]:
+      - generic [ref=f5e29]:
+        - heading "Antipasto Meet up and explore Rome" [level=2] [ref=f5e30]:
+          - text: Antipasto
+          - generic [ref=f5e31]: Meet up and explore Rome
+        - generic [ref=f5e32]: free
+      - generic [ref=f5e33]:
+        - generic [ref=f5e34]:
+          - paragraph [ref=f5e35]: Be a part of the Amor Run Club community and experience the joy of running together through the beautiful streets of Rome. Whether you’re looking to improve your fitness, make new friends, or simply enjoy the city from a different perspective, we welcome runners of all levels. Join us for our weekly runs and social gatherings, and make the most of your time in the Eternal City.
+          - link "Join the club on Strava" [ref=f5e36] [cursor=pointer]:
+            - /url: https://www.strava.com/clubs/1224988
+        - img "Two runners in club t-shirts clasping hands and laughing on a cobbled street" [ref=f5e38]
+    - region [ref=f5e39]:
+      - generic [ref=f5e40]:
+        - heading "Primo The run" [level=2] [ref=f5e41]:
+          - text: Primo
+          - generic [ref=f5e42]: The run
+        - generic [ref=f5e43]: all paces
+      - generic [ref=f5e44]:
+        - img "Runners smiling and waving at the camera during a group run in the park" [ref=f5e46]
+        - generic [ref=f5e47]:
+          - article [ref=f5e48]:
+            - heading "Easy Run 5K" [level=3] [ref=f5e49]
+            - paragraph [ref=f5e50]: 5 km · easy pace, nobody left behind
+            - paragraph [ref=f5e51]: Date, time and meeting point are announced on Instagram. You can stay updated on all our activities through our Instagram page.
+          - link "Follow on Instagram @amor_runclub" [ref=f5e52] [cursor=pointer]:
+            - /url: https://www.instagram.com/amor_runclub/
+    - region "House special" [ref=f5e53]:
+      - blockquote [ref=f5e54]:
+        - paragraph [ref=f5e55]: “Eat pasta run fasta.”
+        - generic [ref=f5e56]: — Anonymous runner
+    - region [ref=f5e57]:
+      - generic [ref=f5e58]:
+        - heading "Secondo Pasta after" [level=2] [ref=f5e59]:
+          - text: Secondo
+          - generic [ref=f5e60]: Pasta after
+        - generic [ref=f5e61]: free
+      - generic [ref=f5e62]:
+        - generic [ref=f5e63]:
+          - paragraph [ref=f5e64]: Amor Run Club in Rome is your gateway to fitness and fun! Join our vibrant community of runners, where every stride brings joy and new friendships. Whether you’re a seasoned runner or just starting out, our inclusive environment welcomes all levels. We organize scenic runs through Rome’s beautiful landscapes, followed by social events to bond over shared passions. With Amor Run Club, fitness becomes a delightful journey. Come run with us and discover the magic of running together!
+          - link "Join our WhatsApp community" [ref=f5e65] [cursor=pointer]:
+            - /url: https://chat.whatsapp.com/H0ZIIUmXV1ND4bi73CpGDf
+        - generic [ref=f5e66]:
+          - img "Club members and the pasta maker behind the counter with fresh pasta and orange running shoes" [ref=f5e68]
+          - img "An elderly pasta maker holding a tray of fresh ravioli with running shoes on his shoulders" [ref=f5e70]
+          - img "A runner weighing an orange running shoe on the pasta shop scale" [ref=f5e72]
+    - region [ref=f5e73]:
+      - generic [ref=f5e74]:
+        - heading "Dolce The community" [level=2] [ref=f5e75]:
+          - text: Dolce
+          - generic [ref=f5e76]: The community
+        - generic [ref=f5e77]: all you can see
+      - list [ref=f5e78]:
+        - listitem [ref=f5e79]:
+          - img "A runner laughing while holding up a copy of The Runner’s Journal" [ref=f5e80]
+        - listitem [ref=f5e81]:
+          - img "Club members and the pasta maker behind the counter with fresh pasta and orange running shoes" [ref=f5e82]
+        - listitem [ref=f5e83]:
+          - img "A Roman newsstand dressed in Saucony and Amor Run Club red panels" [ref=f5e84]
+        - listitem [ref=f5e85]:
+          - img "Runners from behind wearing black Roma t-shirts with winged-foot prints" [ref=f5e86]
+        - listitem [ref=f5e87]:
+          - img "An elderly pasta maker holding a tray of fresh ravioli with running shoes on his shoulders" [ref=f5e88]
+        - listitem [ref=f5e89]:
+          - img "Copies of The Runner’s Journal, Amor x Saucony, stacked on a red stand" [ref=f5e90]
+        - listitem [ref=f5e91]:
+          - img "Runner entering a Testaccio pasta shop with an Amor Run Club banner in the window" [ref=f5e92]
+        - listitem [ref=f5e93]:
+          - img "Two runners reading The Runner’s Journal together" [ref=f5e94]
+        - listitem [ref=f5e95]:
+          - img "A pair of orange running shoes hanging by their laces in the sun" [ref=f5e96]
+        - listitem [ref=f5e97]:
+          - img "The newsstand owner proudly holding a yellow running shoe" [ref=f5e98]
+        - listitem [ref=f5e99]:
+          - img "A runner weighing an orange running shoe on the pasta shop scale" [ref=f5e100]
+        - listitem [ref=f5e101]:
+          - img "A rack full of The Runner’s Journal newspapers inside the newsstand" [ref=f5e102]
+        - listitem [ref=f5e103]:
+          - img "A shop window displaying running shoes between rows of newspapers" [ref=f5e104]
+        - listitem [ref=f5e105]:
+          - img "Running shoes and The Runner’s Journal in warm afternoon light" [ref=f5e106]
+    - region [ref=f5e107]:
+      - generic [ref=f5e108]:
+        - generic [ref=f5e109]:
+          - heading "Sign up" [level=2] [ref=f5e110]
+          - paragraph [ref=f5e111]: "tavolo: Amor Run Club · coperti: tutti"
+        - generic [ref=f5e112]:
+          - list [ref=f5e113]:
+            - listitem [ref=f5e114]:
+              - generic [ref=f5e115]: Name
+              - textbox "Name" [ref=f5e116]
+            - listitem [ref=f5e117]:
+              - generic [ref=f5e118]: Email
+              - textbox "Email" [ref=f5e119]
+            - listitem [ref=f5e120]:
+              - generic [ref=f5e121]: Instagram (optional)
+              - textbox "Instagram (optional)" [ref=f5e122]:
+                - /placeholder: "@yourhandle"
+            - listitem [ref=f5e123]:
+              - generic [ref=f5e124]:
+                - checkbox "I accept the Release of Liability" [ref=f5e125] [cursor=pointer]
+                - generic [ref=f5e126] [cursor=pointer]: I accept the Release of Liability
+              - button "Read the Release of Liability" [ref=f5e127] [cursor=pointer]
+          - button "Sign up" [ref=f5e128] [cursor=pointer]
+    - dialog [ref=f5e171]:
+      - generic [ref=f5e172]:
+        - paragraph [ref=f5e173]: Scontrino · Release of Liability
+        - generic [ref=f5e174]:
+          - heading "Amor Run Club A.S.D. Release of Liability and Assumption of Risk Agreement" [level=2] [ref=f5e175]
+          - paragraph [ref=f5e176]:
+            - strong [ref=f5e177]: "Last Updated: April 7, 2025"
+            - strong [ref=f5e178]: Organizer
+            - text: ": Amor Run Club A.S.D."
+            - strong [ref=f5e179]: Address
+            - text: ": Via Agostino Magliani 6, Rome, Italy"
+            - strong [ref=f5e180]: VAT
+            - text: ": 17811321003 |"
+            - strong [ref=f5e181]: Tax Code
+            - text: ": 96605360583 |"
+            - strong [ref=f5e182]: SDI Code
+            - text: ": BA6ET11"
+          - generic [ref=f5e183]:
+            - heading "1. Acknowledgement of Risks and Voluntary Participation" [level=3] [ref=f5e184]
+            - paragraph [ref=f5e185]:
+              - text: I understand and accept that participation in the activities organized by Amor Run Club A.S.D., including but not limited to running sessions, races, and related events (collectively “Run Club Activities”), involves
+              - strong [ref=f5e186]: inherent risks
+              - text: ". These may include, but are not limited to:"
+            - list [ref=f5e187]:
+              - listitem [ref=f5e188]: Personal or physical injuries (including death)
+              - listitem [ref=f5e189]: Property damage or loss
+              - listitem [ref=f5e190]: Accidents arising from my own actions or the actions/inactions of others
+              - listitem [ref=f5e191]: Weather conditions, terrain, hydration, or facility-related risks
+            - paragraph [ref=f5e192]:
+              - text: I voluntarily assume
+              - strong [ref=f5e193]: full responsibility for all known and unknown risks
+              - text: and I participate entirely at my own risk.
+          - generic [ref=f5e194]:
+            - heading "2. Medical Fitness Declaration" [level=3] [ref=f5e195]
+            - paragraph [ref=f5e196]:
+              - text: I declare that I am
+              - strong [ref=f5e197]: physically fit
+              - text: and have prepared adequately to participate. I confirm that I have
+              - strong [ref=f5e198]: not received contrary advice
+              - text: from a medical professional.
+          - generic [ref=f5e199]:
+            - heading "3. Waiver and Release" [level=3] [ref=f5e200]
+            - paragraph [ref=f5e201]: "In consideration of the opportunity to participate in the Run Club Activities, I, for myself and on behalf of my heirs, executors, legal representatives, and assigns, hereby:"
+            - list [ref=f5e202]:
+              - listitem [ref=f5e203]:
+                - strong [ref=f5e204]: Waive and release
+                - text: Amor Run Club A.S.D. and any of its sponsors, partners, organizers, volunteers, and affiliates (“Released Parties”) from any and all liability, claims, demands, or causes of action related to personal injury, property damage, or death, even if arising from their negligence;
+              - listitem [ref=f5e205]:
+                - strong [ref=f5e206]: Agree not to sue
+                - text: or pursue claims against any of the Released Parties;
+              - listitem [ref=f5e207]:
+                - strong [ref=f5e208]: Indemnify and hold harmless
+                - text: the Released Parties from any costs, liabilities, or legal fees they may incur due to my participation.
+          - generic [ref=f5e209]:
+            - heading "4. Media and Data Usage Consent" [level=3] [ref=f5e210]
+            - paragraph [ref=f5e211]:
+              - text: I grant the Released Parties the
+              - strong [ref=f5e212]: perpetual, worldwide, royalty-free right
+              - text: to use my
+              - strong [ref=f5e213]: name, voice, image, quotes
+              - text: ", and other personal content collected through photos, videos, or audio recordings taken during the events. These may be used for"
+              - strong [ref=f5e214]: promotional and marketing purposes
+              - text: ", without further consent or compensation."
+            - paragraph [ref=f5e215]: I waive the right to inspect or approve the final use of such materials.
+          - generic [ref=f5e216]:
+            - heading "5. Personal Data Protection (GDPR Compliance)" [level=3] [ref=f5e217]
+            - paragraph [ref=f5e218]: The Data Controller is Amor Run Club A.S.D., Via Agostino Magliani 6, Rome.
+            - paragraph [ref=f5e219]: "Your data (name, email, phone, signature, etc.) will be processed only for:"
+            - list [ref=f5e220]:
+              - listitem [ref=f5e221]: Managing participation
+              - listitem [ref=f5e222]: Ensuring legal and safety compliance
+              - listitem [ref=f5e223]: Creating marketing materials (photos, videos, etc.)
+            - paragraph [ref=f5e224]:
+              - strong [ref=f5e225]: Legal Basis
+              - text: ": Legitimate interest (Art. 6(1)(f) GDPR)."
+              - strong [ref=f5e226]: Retention
+              - text: ": Data will be kept"
+              - strong [ref=f5e227]: only for the time necessary
+              - text: to fulfill the above purposes.
+              - strong [ref=f5e228]: Data Transfer
+              - text: ": No transfer of data outside the EEA is currently in place. If so, it will be protected by"
+              - strong [ref=f5e229]: Standard Contractual Clauses
+              - text: .You may
+              - strong [ref=f5e230]: access, rectify, erase, restrict or object
+              - text: to the processing of your data at any time. You also have the right to lodge a complaint with the
+              - strong [ref=f5e231]: Garante per la Protezione dei Dati Personali
+              - text: (
+              - link "www.garanteprivacy.it" [active] [ref=f5e232] [cursor=pointer]:
+                - /url: https://www.garanteprivacy.it/
+              - text: ).
+          - generic [ref=f5e233]:
+            - heading "6. Declaration of Age and Consent" [level=3] [ref=f5e234]
+            - paragraph [ref=f5e235]:
+              - text: By signing this document, I confirm that I am
+              - strong [ref=f5e236]: 18 years of age or older
+              - text: and that I understand and agree to the full content of this Release. I sign it
+              - strong [ref=f5e237]: freely and voluntarily
+              - text: ", without inducement or coercion."
+        - button "I’ve read it" [ref=f5e239] [cursor=pointer]
+  - contentinfo [ref=f5e131]:
+    - generic [ref=f5e132]:
+      - generic [ref=f5e133]:
+        - paragraph [ref=f5e134]: © 2026 Amor Run Club A.S.D.
+        - paragraph [ref=f5e135]: Via Agostino Magliani 6, Rome, ItalyVAT 17811321003 · Tax code 96605360583
+      - list [ref=f5e136]:
+        - listitem [ref=f5e137]:
+          - link "Instagram" [ref=f5e138] [cursor=pointer]:
+            - /url: https://www.instagram.com/amor_runclub/
+        - listitem [ref=f5e139]:
+          - link "Strava" [ref=f5e140] [cursor=pointer]:
+            - /url: https://www.strava.com/clubs/1224988
+        - listitem [ref=f5e141]:
+          - link "WhatsApp" [ref=f5e142] [cursor=pointer]:
+            - /url: https://chat.whatsapp.com/H0ZIIUmXV1ND4bi73CpGDf
+    - paragraph [ref=f5e143]:
+      - text: Design concept for amorrunclub.com — example, not the official site.
+      - link "All directions" [ref=f5e144] [cursor=pointer]:
+        - /url: /
+  - generic [ref=f5e147]:
+    - button [ref=f5e148]
+    - button [ref=f5e154]
+    - button [ref=f5e158]
+    - button [ref=f5e166]

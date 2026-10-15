@@ -1,0 +1,296 @@
+---
+import "@fontsource/unifrakturmaguntia";
+import "@fontsource-variable/libre-franklin";
+import "@fontsource/libre-caslon-text/400.css";
+import "@fontsource/libre-caslon-text/400-italic.css";
+import "@fontsource/libre-caslon-text/700.css";
+import "../../styles/journal.css";
+import { Image } from "astro:assets";
+import { site, photos, gallery } from "../../data/site";
+import ReleaseText from "../../components/shared/ReleaseText.astro";
+import wordmark from "../../assets/wordmark.png";
+import mascot from "../../assets/mascot.png";
+
+const title = "The Runner’s Journal · Amor Run Club, Rome";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={site.description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={site.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/video/hero-poster.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f1f0ea" />
+    <link rel="icon" href="/brand/icon-192.png" />
+  </head>
+  <body class="j">
+    <a class="j-skip" href="#main">Skip to the front page</a>
+
+    <header class="j-head">
+      <div class="j-strip">
+        <a class="j-strip__brand" href="#top" aria-label="Amor Run Club, front page">
+          <Image src={wordmark} alt="" width={150} height={50} class="j-strip__wm" />
+        </a>
+        <nav aria-label="Sections" class="j-strip__nav">
+          <a href="#rome">Rome</a>
+          <a href="#events">Events</a>
+          <a href="#pictures">Pictures</a>
+          <a href="#classifieds" class="j-strip__cta">Sign up</a>
+        </nav>
+      </div>
+
+      <div class="j-mast" id="top">
+        <p class="j-mast__ear j-mast__ear--l">Run the streets,<br />read the stories</p>
+        <h1 class="j-mast__title"><span>The Runner’s Journal</span></h1>
+        <p class="j-mast__ear j-mast__ear--r">
+          <Image src={mascot} alt="" width={60} class="j-mast__mascot" />
+        </p>
+        <p class="j-mast__dateline">
+          <span>Rome</span><span>Edition 2026</span><span>Free</span>
+        </p>
+      </div>
+
+      <div class="j-ticker" data-ticker>
+        <div class="j-ticker__track" aria-hidden="true">
+          {Array.from({ length: 8 }).map(() => (
+            <span class="j-ticker__item">Eat pasta run fasta. <svg viewBox="0 0 12 12" width="10" height="10"><rect x="2" y="2" width="8" height="8" transform="rotate(45 6 6)" fill="currentColor" /></svg></span>
+          ))}
+        </div>
+        <p class="j-sr">Eat pasta run fasta.</p>
+        <button class="j-ticker__btn" type="button" data-ticker-toggle aria-pressed="false">
+          <span class="j-sr">Pause ticker</span>
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" class="i-pause"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg>
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" class="i-play"><path d="M4 2 L14 8 L4 14 Z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- FRONT PAGE -->
+      <section class="j-front" aria-labelledby="splash">
+        <div class="j-front__head">
+          <h2 id="splash" class="j-splash">Run, laugh and connect</h2>
+          <p class="j-deck">Join Amor Run Club</p>
+        </div>
+
+        <figure class="j-lead">
+          <div class="j-lead__frame">
+            <Image
+              src={photos.groupPiazza.src}
+              alt={photos.groupPiazza.alt}
+              widths={[480, 800, 1200, 1600]}
+              sizes="(max-width: 900px) 100vw, 66vw"
+              class="j-lead__img"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <video class="j-lead__video" muted loop playsinline preload="metadata" aria-hidden="true" data-poster="/video/hero-poster.jpg" data-poster-portrait="/video/hero-poster-portrait.jpg" data-hero-video>
+              <source media="(max-width: 700px)" src="/video/hero-loop-portrait.webm" type="video/webm" />
+              <source media="(max-width: 700px)" src="/video/hero-loop-portrait.mp4" type="video/mp4" />
+              <source src="/video/hero-loop.webm" type="video/webm" />
+              <source src="/video/hero-loop.mp4" type="video/mp4" />
+            </video>
+            <button class="j-lead__ctl" type="button" data-video-toggle aria-pressed="false" data-label-play="Play film" data-label-pause="Pause film">
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" class="i-pause"><rect x="3" y="2" width="3.5" height="12" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" fill="currentColor"/></svg>
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" class="i-play"><path d="M4 2 L14 8 L4 14 Z" fill="currentColor"/></svg>
+              <span data-video-label>Pause film</span>
+            </button>
+          </div>
+          <figcaption class="j-cap">Runners of every pace, gathered in a Roman piazza. <span class="j-credit">Amor Run Club, Rome</span></figcaption>
+        </figure>
+
+        <aside class="j-front__side" aria-label="Sign up">
+          <p class="j-side__lede">A free social run club for every pace. Weekly runs through the city, then pasta and good company.</p>
+          <a class="j-coupon-tab" href="#classifieds">
+            <span class="j-coupon-tab__stamp">Free entry</span>
+            <span class="j-coupon-tab__label">Sign up</span>
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/></svg>
+          </a>
+          <p class="j-side__note">Coupon in the Classifieds, page bottom.</p>
+        </aside>
+      </section>
+
+      <!-- STORIES -->
+      <section class="j-stories" aria-label="Stories">
+        <article class="j-story j-story--rome" id="rome" aria-labelledby="rome-h">
+          <h2 id="rome-h" class="j-hl">Explore Rome on foot, together</h2>
+          <figure class="j-fig">
+            <div class="j-halftone">
+              <Image src={photos.wingsTees.src} alt={photos.wingsTees.alt} widths={[400, 700, 1000]} sizes="(max-width: 900px) 100vw, 40vw" />
+            </div>
+            <figcaption class="j-cap">{photos.wingsTees.alt}.</figcaption>
+          </figure>
+          <div class="j-cols">
+            <p class="j-dropcap">{site.copy.exploreRome}</p>
+          </div>
+          <a class="j-link" href={site.links.strava} rel="noopener" target="_blank">Join the club on Strava <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.5"/></svg></a>
+        </article>
+
+        <article class="j-story j-story--involved" aria-labelledby="inv-h">
+          <h2 id="inv-h" class="j-hl j-hl--md">Get involved</h2>
+          <figure class="j-fig">
+            <div class="j-halftone">
+              <Image src={photos.handshakePiazza.src} alt={photos.handshakePiazza.alt} widths={[400, 700]} sizes="(max-width: 900px) 100vw, 30vw" />
+            </div>
+            <figcaption class="j-cap">{photos.handshakePiazza.alt}.</figcaption>
+          </figure>
+          <p class="j-body">{site.copy.getInvolved}</p>
+          <a class="j-link" href={site.links.whatsapp} rel="noopener" target="_blank">Join our WhatsApp community <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.5"/></svg></a>
+        </article>
+
+        <aside class="j-events" id="events" aria-labelledby="ev-h">
+          <h2 id="ev-h" class="j-nameplate">Events</h2>
+          <ul class="j-events__list">
+            {site.events.map((e) => (
+              <li>
+                <h3 class="j-events__title">{e.title}</h3>
+                <p class="j-events__dist">{e.distance} · easy pace</p>
+                <p class="j-events__note">Details on Instagram. {e.note}</p>
+              </li>
+            ))}
+          </ul>
+          <p class="j-events__note">{site.copy.eventsNote}</p>
+          <a class="j-link j-link--inv" href={site.links.instagram} rel="noopener" target="_blank">Follow on Instagram <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.5"/></svg></a>
+        </aside>
+      </section>
+
+      <!-- QUOTE -->
+      <section class="j-quote" aria-label="Quote of the day">
+        <blockquote>
+          <p>“Eat pasta run fasta.”</p>
+          <footer>Anonymous runner</footer>
+        </blockquote>
+      </section>
+
+      <!-- PICTURE PAGE -->
+      <section class="j-pictures" id="pictures" aria-labelledby="pic-h">
+        <h2 id="pic-h" class="j-nameplate j-nameplate--lg">The Picture Page</h2>
+        <ol class="j-sheet">
+          {gallery.map((p, i) => (
+            <li class:list={["j-sheet__cell", i === 0 && "is-wide", i === 6 && "is-tall"]}>
+              <figure>
+                <div class="j-halftone">
+                  <Image src={p.src} alt={p.alt} widths={[360, 640, 900]} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" />
+                </div>
+                <figcaption class="j-cap"><span class="j-frame">{String(i + 1).padStart(2, "0")}A</span> {p.alt}.</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <!-- CLASSIFIEDS -->
+      <section class="j-classifieds" id="classifieds" aria-labelledby="cls-h">
+        <h2 id="cls-h" class="j-nameplate j-nameplate--lg">Classifieds</h2>
+        <div class="j-cls-grid">
+          <div class="j-ads">
+            <p class="j-ad"><strong>Runners wanted.</strong> All paces, all levels, no experience needed. Weekly runs through Rome, pasta after.</p>
+            <p class="j-ad"><strong>Lost & found.</strong> Your running buddies. Collect at the next run. Updates on <a href={site.links.instagram} rel="noopener" target="_blank">{site.links.instagramHandle}</a>.</p>
+            <p class="j-ad"><strong>Community notice.</strong> Chat, plans and carpools in our <a href={site.links.whatsapp} rel="noopener" target="_blank">WhatsApp community</a>.</p>
+          </div>
+
+          <div class="j-coupon">
+            <div class="j-coupon__cut" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="28" height="28" class="j-scissors">
+                <circle cx="7" cy="9" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="7" cy="23" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M10.5 11.5 30 22M10.5 20.5 30 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="j-coupon__body">
+              <h3 class="j-coupon__h">Sign up</h3>
+              <p class="j-coupon__sub">Clip, fill and send. Free, always.</p>
+              <form data-entry-form novalidate class="j-form">
+                <div class="j-field">
+                  <label for="j-name">Name</label>
+                  <input id="j-name" name="name" type="text" autocomplete="name" aria-describedby="j-name-err" required />
+                  <p class="j-err" id="j-name-err" data-error-for="name" aria-live="polite"></p>
+                </div>
+                <div class="j-field">
+                  <label for="j-email">Email</label>
+                  <input id="j-email" name="email" type="email" autocomplete="email" aria-describedby="j-email-err" required />
+                  <p class="j-err" id="j-email-err" data-error-for="email" aria-live="polite"></p>
+                </div>
+                <div class="j-field">
+                  <label for="j-ig">Instagram <span class="j-opt">(optional)</span></label>
+                  <input id="j-ig" name="instagram" type="text" placeholder="@yourhandle" aria-describedby="j-ig-err" />
+                  <p class="j-err" id="j-ig-err" data-error-for="instagram" aria-live="polite"></p>
+                </div>
+                <div class="j-field j-field--check">
+                  <input id="j-accept" name="accept" type="checkbox" aria-describedby="j-accept-err" />
+                  <label for="j-accept">I accept the <button type="button" class="j-inline-btn" data-open-fine aria-controls="fine-print">Release of Liability</button></label>
+                  <p class="j-err" id="j-accept-err" data-error-for="accept" aria-live="polite"></p>
+                </div>
+                <button type="submit" class="j-submit"><span class="j-submit__idle">Sign up</span><span class="j-submit__busy">Going to press…</span></button>
+              </form>
+              <div data-form-success hidden class="j-success">
+                <p class="j-success__h">Stop the presses: welcome, <span data-success-name></span>.</p>
+                <p>You’re on the list. Run details land on Instagram, so follow along and we’ll see you at the start line.</p>
+                <a class="j-link" href={site.links.instagram} rel="noopener" target="_blank">Follow on Instagram</a>
+              </div>
+            </div>
+          </div>
+
+          <details class="j-fine" id="fine-print">
+            <summary><span class="j-nameplate j-nameplate--sm">The fine print</span><span class="j-fine__hint">Release of Liability, read in full</span></summary>
+            <div class="j-fine__cols">
+              <ReleaseText />
+            </div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="j-foot">
+      <p class="j-foot__mast">The Runner’s Journal</p>
+      <div class="j-foot__grid">
+        <p>© 2026 {site.legalName}<br />{site.legal.address}<br />VAT {site.legal.vat} · Tax code {site.legal.taxCode}</p>
+        <ul class="j-foot__links">
+          <li><a href={site.links.instagram} rel="noopener" target="_blank">Instagram</a></li>
+          <li><a href={site.links.strava} rel="noopener" target="_blank">Strava</a></li>
+          <li><a href={site.links.whatsapp} rel="noopener" target="_blank">WhatsApp</a></li>
+        </ul>
+        <p>Design concept for amorrunclub.com — example, not the official site.<br /><a href="/">All directions</a></p>
+      </div>
+    </footer>
+
+    <script>
+      import { initEntryForms } from "../../scripts/entry-form";
+      import { initHeroVideo } from "../../scripts/hero-video";
+      initEntryForms();
+      initHeroVideo();
+
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // ticker
+      const ticker = document.querySelector<HTMLElement>("[data-ticker]");
+      const tBtn = document.querySelector<HTMLButtonElement>("[data-ticker-toggle]");
+      tBtn?.addEventListener("click", () => {
+        const paused = ticker!.classList.toggle("is-paused");
+        tBtn.setAttribute("aria-pressed", String(paused));
+        tBtn.querySelector(".j-sr")!.textContent = paused ? "Play ticker" : "Pause ticker";
+      });
+
+      // develop halftones on view
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add("is-developed"); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.45 });
+      document.querySelectorAll(".j-halftone").forEach((el) => io.observe(el));
+
+      // fine print opener
+      document.querySelector("[data-open-fine]")?.addEventListener("click", () => {
+        const d = document.getElementById("fine-print") as HTMLDetailsElement;
+        d.open = true;
+        d.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+        d.querySelector("summary")?.focus({ preventScroll: true });
+      });
+    </script>
+  </body>
+</html>
