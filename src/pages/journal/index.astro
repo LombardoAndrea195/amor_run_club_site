@@ -4,6 +4,7 @@ import "@fontsource-variable/libre-franklin";
 import "@fontsource/libre-caslon-text/400.css";
 import "@fontsource/libre-caslon-text/400-italic.css";
 import "@fontsource/libre-caslon-text/700.css";
+import "../../styles/transitions.css";
 import "../../styles/journal.css";
 import { Image } from "astro:assets";
 import { site, photos, gallery } from "../../data/site";
@@ -73,7 +74,7 @@ const title = "The Runner’s Journal · Amor Run Club, Rome";
     <main id="main">
       <!-- FRONT PAGE -->
       <section class="j-front" aria-labelledby="splash">
-        <div class="j-front__head">
+        <div class="j-front__head" data-stagger="load">
           <h2 id="splash" class="j-splash">Run, laugh and connect</h2>
           <p class="j-deck">Join Amor Run Club</p>
         </div>
@@ -262,8 +263,11 @@ const title = "The Runner’s Journal · Amor Run Club, Rome";
     <script>
       import { initEntryForms } from "../../scripts/entry-form";
       import { initHeroVideo } from "../../scripts/hero-video";
+      import { initStagger, initTilt } from "../../scripts/motion";
       initEntryForms();
       initHeroVideo();
+      initStagger();
+      initTilt(".j-fig, .j-sheet figure");
 
       const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 

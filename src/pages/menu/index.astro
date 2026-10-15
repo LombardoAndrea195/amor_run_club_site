@@ -2,6 +2,7 @@
 import "@fontsource/shrikhand";
 import "@fontsource/gochi-hand";
 import "@fontsource-variable/bricolage-grotesque";
+import "../../styles/transitions.css";
 import "../../styles/menu.css";
 import { Image } from "astro:assets";
 import { site, photos, gallery } from "../../data/site";
@@ -50,7 +51,7 @@ const desc = site.description;
 
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="card">
+        <div class="card" data-stagger="load">
           <Image src={wordmark} alt="Amor Run Club" class="card__wordmark" width={360} />
           <h1 id="hero-title">Run, laugh and connect</h1>
           <p class="card__sub">Join Amor Run Club</p>
@@ -102,7 +103,7 @@ const desc = site.description;
 
       <Course id="antipasto" name="Antipasto" price="free" dish="Meet up and explore Rome">
         <div class="plate plate--split">
-          <div class="plate__text">
+          <div class="plate__text" data-stagger>
             <p>{site.copy.exploreRome}</p>
             <a class="link-ink" href={site.links.strava} rel="noopener">Join the club on Strava</a>
           </div>
@@ -117,7 +118,7 @@ const desc = site.description;
           <div class="duo" data-cook>
             <Image src={photos.runParkCheer.src} alt={photos.runParkCheer.alt} widths={[500, 800]} sizes="(max-width: 800px) 92vw, 40vw" />
           </div>
-          <div class="plate__text">
+          <div class="plate__text" data-stagger>
             {site.events.map((e) => (
               <article class="special">
                 <h3>{e.title}</h3>
@@ -139,7 +140,7 @@ const desc = site.description;
 
       <Course id="secondo" name="Secondo" price="free" dish="Pasta after">
         <div class="plate plate--split">
-          <div class="plate__text">
+          <div class="plate__text" data-stagger>
             <p>{site.copy.getInvolved}</p>
             <a class="link-ink" href={site.links.whatsapp} rel="noopener">Join our WhatsApp community</a>
           </div>
@@ -237,8 +238,11 @@ const desc = site.description;
     <script>
       import { initEntryForms } from "../../scripts/entry-form";
       import { initHeroVideo } from "../../scripts/hero-video";
+      import { initStagger, initTilt } from "../../scripts/motion";
       initEntryForms();
       initHeroVideo();
+      initStagger();
+      initTilt(".duo");
 
       const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 

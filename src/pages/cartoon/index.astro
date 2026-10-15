@@ -2,6 +2,7 @@
 import "@fontsource/bowlby-one";
 import "@fontsource/limelight";
 import "@fontsource-variable/hanken-grotesk";
+import "../../styles/transitions.css";
 import "../../styles/cartoon.css";
 import { Image } from "astro:assets";
 import { site, photos, gallery } from "../../data/site";
@@ -81,7 +82,7 @@ const year = 2026;
               <span class="ct-sr" data-video-label>Pause background video</span>
             </button>
           </div>
-          <div class="ct-hero__copy">
+          <div class="ct-hero__copy" data-stagger="load">
             <p class="ct-credit">Amor Productions presents</p>
             <h1 id="hero-title">Run, laugh and connect</h1>
             <p class="ct-hero__sub">Join Amor Run Club. Free social runs through Rome, every pace welcome, pasta after.</p>
@@ -104,7 +105,7 @@ const year = 2026;
             sizes="(max-width: 860px) 92vw, 48vw"
           />
         </div>
-        <div class="ct-rome__copy">
+        <div class="ct-rome__copy" data-stagger>
           <h2 id="rome-title">Explore Rome</h2>
           <p>
             Be a part of the Amor Run Club community and experience the joy of running together through the beautiful
@@ -140,7 +141,7 @@ const year = 2026;
 
       <!-- Scene: Get involved -->
       <section class="ct-scene ct-involved" aria-labelledby="involved-title">
-        <div class="ct-involved__copy">
+        <div class="ct-involved__copy" data-stagger>
           <h2 id="involved-title">Get involved</h2>
           <p>
             Amor Run Club is your gateway to fitness and fun. Every stride brings joy and new friendships, whether you’re
@@ -175,7 +176,7 @@ const year = 2026;
 
       <!-- Film strip -->
       <section class="ct-scene ct-gallery" id="gallery" aria-labelledby="gallery-title">
-        <div class="ct-gallery__head">
+        <div class="ct-gallery__head" data-stagger>
           <h2 id="gallery-title">Scenes from the club</h2>
           <p>Scroll the reel, or focus it and use your arrow keys.</p>
         </div>
@@ -263,8 +264,11 @@ const year = 2026;
     <script>
       import { initEntryForms } from "../../scripts/entry-form";
       import { initHeroVideo } from "../../scripts/hero-video";
+      import { initStagger, initTilt } from "../../scripts/motion";
       initEntryForms();
       initHeroVideo();
+      initStagger();
+      initTilt(".ct-frame, .ct-strip li");
 
       const dlg = document.getElementById("release") as HTMLDialogElement | null;
       document.querySelectorAll("[data-open-release]").forEach((b) =>

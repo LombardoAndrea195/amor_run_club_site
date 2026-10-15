@@ -13,6 +13,8 @@
  * State hooks: form gets data-state="idle|sending|done"; invalid fields get aria-invalid="true".
  */
 
+import { shake, showStagger } from "./motion";
+
 type Field = "name" | "email" | "instagram" | "accept";
 
 const messages: Record<Field, (el: HTMLInputElement) => string | null> = {
@@ -66,6 +68,10 @@ export function initEntryForms(root: ParentNode = document) {
       e.preventDefault();
       const results = fields.map((f) => validateField(form, f));
       if (results.includes(false)) {
+        form.querySelectorAll<HTMLElement>('[aria-invalid="true"]').forEach((el) => {
+          const target = el.type === "checkbox" ? el.closest("label") ?? el.parentElement : el;
+          if (target) shake(target);
+        });
         const firstBad = form.querySelector<HTMLElement>('[aria-invalid="true"]');
         firstBad?.focus();
         return;
@@ -88,6 +94,7 @@ export function initEntryForms(root: ParentNode = document) {
         success.querySelectorAll("[data-success-name]").forEach((n) => (n.textContent = first));
         success.hidden = false;
         form.hidden = true;
+        showStagger(success);
         success.setAttribute("tabindex", "-1");
         success.focus();
       }

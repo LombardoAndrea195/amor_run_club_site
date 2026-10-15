@@ -29,3 +29,5 @@ video-src/original/
 video-src/**/node_modules/
 video-src/**/renders/
 .impeccable/
+.agents/
+skills-lock.json
